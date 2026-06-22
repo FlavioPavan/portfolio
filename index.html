@@ -6,6 +6,16 @@
   <title>Flavio Pavan — Designer Gráfico & Diretor de Arte</title>
   <meta name="description" content="Portfólio de Flavio Pavan, Designer com mais de 30 anos de experiência multidisciplinar." />
 
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Flavio Pavan — Designer Gráfico & Diretor de Arte" />
+  <meta property="og:description" content="Portfólio de Flavio Pavan, Designer com mais de 30 anos de experiência multidisciplinar." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://flaviopavan.design" />
+  <meta name="theme-color" content="#0A0A0A" />
+
+  <!-- Favicon básico -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>" />
+
   <!-- Fontes do Projeto Original -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,35 +23,147 @@
 
   <style>
     /* ==========================================================================
-       TOKENS DE DESIGN & VARIÁVEIS (Ajustado para Laranja Fluor)
+       TOKENS DE DESIGN & VARIÁVEIS (Laranja Fluor)
        ========================================================================== */
     :root {
       --bg-dark: #0A0A0A;
-      --bg-light: #EDECE6; /* Tom creme do bloco de habilidades */
+      --bg-light: #EDECE6;
       --text-white: #FFFFFF;
       --text-dark: #121212;
       --text-muted: #8E8E93;
       --text-muted-dark: #48484A;
-      
-      /* SUBSTITUIÇÃO: Verde Fluor por Laranja Fluor Neon */
-      --brand-fluor: #FF5F1F; 
+
+      --brand-fluor: #FF5F1F;
       --brand-fluor-hover: #FF7A45;
-      
+
       --card-bg: #141416;
       --font-title: 'Syne', sans-serif;
       --font-body: 'Inter', sans-serif;
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+      /* Altura da navbar para compensação */
+      --nav-height: 68px;
     }
 
     /* Reset Geral Basico */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: var(--nav-height); }
     body { background-color: var(--bg-dark); color: var(--text-white); font-family: var(--font-body); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
     ul, ol { list-style: none; }
     img { max-width: 100%; display: block; }
-    
+
     .section-inner { max-width: 1200px; margin: 0 auto; padding: 100px 24px; }
+
+    /* ==========================================================================
+       NAVBAR FIXA
+       ========================================================================== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(10, 10, 10, 0.85);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      padding: 0 24px;
+      transition: var(--transition);
+    }
+
+    .navbar-inner {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar-logo {
+      font-family: var(--font-title);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text-white);
+    }
+    .navbar-logo span {
+      color: var(--brand-fluor);
+    }
+
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .navbar-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: var(--transition);
+      position: relative;
+    }
+    .navbar-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--brand-fluor);
+      transition: var(--transition);
+    }
+    .navbar-links a:hover {
+      color: var(--text-white);
+    }
+    .navbar-links a:hover::after {
+      width: 100%;
+    }
+    .navbar-links a.active {
+      color: var(--text-white);
+    }
+    .navbar-links a.active::after {
+      width: 100%;
+    }
+
+    /* Botão Hamburguer */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+    .nav-toggle:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-white);
+      border-radius: 2px;
+      transition: var(--transition);
+      transform-origin: center;
+    }
+    .nav-toggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .nav-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
 
     /* ==========================================================================
        DOBRA 1: HERO
@@ -51,9 +173,9 @@
       display: flex;
       align-items: center;
       position: relative;
-      padding: 40px 24px;
+      padding: calc(var(--nav-height) + 40px) 24px 40px;
     }
-    .hero-inner { max-width: 1200px; margin: 0 auto; w-index: 2; width: 100%; position: relative; }
+    .hero-inner { max-width: 1200px; margin: 0 auto; width: 100%; position: relative; }
     .hero-eyebrow {
       font-family: var(--font-body);
       text-transform: uppercase;
@@ -110,7 +232,7 @@
        ========================================================================== */
     #about { background-color: #0F0F10; border-top: 1px solid #1C1C1E; }
     .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: center; }
-    
+
     .about-photo-wrapper {
       width: 100%;
       aspect-ratio: 3 / 4;
@@ -121,6 +243,7 @@
       align-items: center;
       justify-content: center;
       transition: var(--transition);
+      background: #1C1C1E;
     }
     .about-photo-wrapper img {
       width: 100%;
@@ -132,8 +255,8 @@
     .about-content { display: flex; flex-direction: column; align-items: flex-start; }
     .about-heading { font-family: var(--font-title); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 24px; }
     .about-bio { font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.6; color: #D1D1D6; margin-bottom: 32px; }
-    
-    .contact-icons { display: flex; gap: 16px; margin-bottom: 40px; }
+
+    .contact-icons { display: flex; gap: 16px; margin-bottom: 40px; flex-wrap: wrap; }
     .contact-link {
       width: 48px;
       height: 48px;
@@ -148,7 +271,7 @@
     .contact-link svg { width: 20px; height: 20px; fill: var(--text-white); transition: var(--transition); }
     .contact-link:hover { background-color: var(--brand-fluor); border-color: var(--brand-fluor); }
     .contact-link:hover svg { fill: var(--text-dark); }
-    
+
     .cta-button {
       display: inline-flex;
       align-items: center;
@@ -171,7 +294,7 @@
     .skills-groups { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; }
     .skills-group-title { font-family: var(--font-body); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #636366; margin-bottom: 32px; border-bottom: 1px solid #D1D1D6; padding-bottom: 12px; }
     .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 24px; }
-    
+
     .tool-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
     .tool-icon-box {
       width: 72px;
@@ -193,10 +316,10 @@
     .tool-fg { background: #2C2C2C; color: #F24E1E; }
     .tool-ae { background: #000033; color: #9999FF; }
     .tool-pr { background: #000022; color: #EA77FF; }
-    
-    /* Caixa das I.As conforme a imagem de referência */
-    .tool-ai-box { 
-      background: #F4F3EF; 
+
+    /* Caixa das I.As */
+    .tool-ai-box {
+      background: #F4F3EF;
       border: 1px solid #E2E1DD;
       box-shadow: 0 4px 10px rgba(0,0,0,0.03);
     }
@@ -218,7 +341,7 @@
 
     .xp-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; }
     .xp-col-title { font-family: var(--font-body); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-fluor); margin-bottom: 40px; }
-    
+
     .xp-list { border-left: 2px solid #1C1C1E; padding-left: 24px; position: relative; }
     .xp-item { position: relative; margin-bottom: 40px; }
     .xp-item::before {
@@ -255,7 +378,7 @@
     }
     .pill.active { background-color: var(--brand-fluor); color: var(--text-dark); border-color: var(--brand-fluor); }
     .pill:hover:not(.active) { border-color: var(--brand-fluor); color: var(--brand-fluor); }
-    
+
     .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
     .portfolio-placeholder {
       background-color: var(--card-bg);
@@ -294,7 +417,7 @@
       color: var(--text-dark);
       border: none;
       border-radius: 50%;
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
       cursor: pointer;
@@ -321,16 +444,60 @@
       .about-photo-wrapper { max-width: 380px; margin: 0 auto; }
       .skills-groups { grid-template-columns: 1fr; gap: 48px; }
       .xp-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      .navbar-links {
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.98);
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        padding: 32px 24px;
+        gap: 24px;
+        transform: translateY(-120%);
+        transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .navbar-links.open {
+        transform: translateY(0);
+      }
+      .nav-toggle {
+        display: flex;
+      }
     }
+
     @media (max-width: 576px) {
       .section-inner { padding: 60px 16px; }
       .filter-bar { gap: 8px; }
       .pill { padding: 8px 16px; font-size: 0.8125rem; }
       .back-to-top { bottom: 16px; right: 16px; }
+      .competencias-top { padding: 20px; }
     }
   </style>
 </head>
 <body>
+
+  <!-- ===================== NAVBAR FIXA ===================== -->
+  <nav class="navbar" role="navigation" aria-label="Menu principal">
+    <div class="navbar-inner">
+      <a href="#hero" class="navbar-logo">Flavio<span>Pavan</span></a>
+
+      <ul class="navbar-links" id="navLinks" role="menubar">
+        <li role="none"><a href="#about" role="menuitem">Sobre</a></li>
+        <li role="none"><a href="#skills" role="menuitem">Habilidades</a></li>
+        <li role="none"><a href="#experience" role="menuitem">Experiência</a></li>
+        <li role="none"><a href="#portfolio" role="menuitem">Trabalhos</a></li>
+        <li role="none"><a href="#footer" role="menuitem">Contato</a></li>
+      </ul>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
 
   <!-- ===================== DOBRA 1: HERO ===================== -->
   <header id="hero">
@@ -349,10 +516,17 @@
   <!-- ==================== DOBRA 2: SOBRE ==================== -->
   <section id="about" aria-label="Sobre">
     <div class="section-inner about-grid">
-      
+
       <div class="about-photo-col">
         <div class="about-photo-wrapper">
-          <img src="assets/perfil-artistic.png" alt="Flavio Pavan">
+          <img
+            src="assets/perfil-artistic.png"
+            alt="Retrato de Flavio Pavan, designer gráfico com mais de 30 anos de experiência"
+            width="600"
+            height="800"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </div>
 
@@ -415,13 +589,11 @@
               <span class="tool-name">Figma</span>
               <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
             </div>
-            <!-- Ajustado para 4 Bolinhas Cheias (Pretas) -->
             <div class="tool-card">
               <div class="tool-icon-box tool-ae">Ae</div>
               <span class="tool-name">After Effects</span>
               <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
             </div>
-            <!-- Ajustado para 3 Bolinhas Cheias (Pretas) -->
             <div class="tool-card">
               <div class="tool-icon-box tool-pr">Pr</div>
               <span class="tool-name">Premiere</span>
@@ -430,33 +602,36 @@
           </div>
         </div>
 
-        <!-- Grupo 2: Inteligência Artificial (Ícones exatos e idênticos à imagem) -->
+        <!-- Grupo 2: Inteligência Artificial (Ícones corrigidos) -->
         <div class="skills-group">
           <h3 class="skills-group-title">Inteligência Artificial</h3>
           <div class="tools-grid">
-            <!-- Claude (Ícone "Starburst" Oficial Cor Terracota) -->
+
+            <!-- Claude — Estrela de 8 pontas (ícone oficial simplificado) -->
             <div class="tool-card">
               <div class="tool-icon-box tool-ai-box">
                 <svg viewBox="0 0 32 32" fill="#D97736">
-                  <path d="M17.13 15.42c.86-1.07 1.88-2.18 2.71-3.15.34-.4.1-.96-.42-.99-.86-.06-2.1-.06-3.11-.02-.45.02-.75.43-.64.86.26 1.05.65 2.51.87 3.59.09.46.6.61.94.27.11-.12.29-.35.65-.56zm-1.89 2.59c1.07.86 2.18 1.88 3.15 2.71.4.34.96.1.99-.42.06-.86.06-2.1.02-3.11-.02-.45-.43-.75-.86-.64-1.05.26-2.51.65-3.59.87-.46.09-.61.6-.27.94.12.11.35.29.56.65zm-2.5-4.48c-.86 1.07-1.88 2.18-2.71 3.15-.34.4-.1.96.42.99.86.06 2.1.06 3.11.02.45-.02.75-.43.64-.86-.26-1.05-.65-2.51-.87-3.59-.09-.46-.6-.61-.94-.27-.11.12-.29.35-.65.56zm4.48-2.5c1.07-.86 2.18-1.88 3.15-2.71.4-.34.96-.1.99.42.06.86.06-2.1.02-3.11-.02-.45-.43-.75-.86-.64-1.05.26-2.51.65-3.59.87-.46.09-.61.6-.27.94.12.11.35.29.56.65zm-5.06-.74c-.26-1.05-.65-2.51-.87-3.59-.09-.46-.6-.61-.94-.27-.11.12-.29.35-.65.56-.86 1.07-1.88 2.18-2.71 3.15-.34.4-.1.96.42.99.86.06 2.1.06 3.11.02.45-.02.75-.43.64-.86zm4.5 10.14c.26 1.05.65 2.51.87 3.59.09.46.6.61.94.27.11-.12.29-.35.65-.56.86-1.07 1.88-2.18 2.71-3.15.34-.4.1-.96-.42-.99-.86-.06-2.1-.06-3.11-.02-.45.02-.75.43-.64.86zm-7.07-2.61c-1.07-.86-2.18-1.88-3.15-2.71-.4-.34-.96-.1-.99.42-.06.86-.06 2.1-.02 3.11.02.45.43.75.86.64 1.05-.26 2.51-.65 3.59-.87.46-.09.61-.6.27-.94-.12-.11-.35-.29-.56-.65z"/>
+                  <path d="M16 2l2.5 8.5L27 13l-6.5 5.5L22.5 27 16 22.5 9.5 27l2-8.5L5 13l8.5-2.5L16 2z" />
                 </svg>
               </div>
               <span class="tool-name">Claude</span>
               <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
             </div>
-            
-            <!-- ChatGPT (Ícone Vórtice Oficial Preto) -->
+
+            <!-- ChatGPT — Anéis entrelaçados (ícone oficial simplificado) -->
             <div class="tool-card">
               <div class="tool-icon-box tool-ai-box">
                 <svg viewBox="0 0 24 24" fill="#000000">
-                  <path d="M21.74 11.53c.21-.4.32-.86.32-1.32 0-1.56-1.26-2.82-2.82-2.82-.44 0-.87.1-1.27.3-.43-.76-1.22-1.24-2.13-1.24-.41 0-.82.1-1.18.29-.53-.87-1.48-1.42-2.55-1.42-1.25 0-2.31.81-2.69 1.94-.4-.2-.84-.31-1.3-.31-1.56 0-2.82 1.26-2.82 2.82 0 .44.1.87.3 1.28-.76.43-1.25 1.22-1.25 2.13 0 .4.1.81.29 1.17-.87.53-1.42 1.48-1.42 2.54 0 1.57 1.26 2.83 2.82 2.83.45 0 .89-.11 1.29-.31.43.76 1.22 1.24 2.13 1.24.41 0 .81-.1 1.17-.29.54.87 1.49 1.41 2.55 1.41 1.56 0 2.82-1.26 2.82-2.82 0-.45-.1-.88-.3-1.29.77-.43 1.25-1.22 1.25-2.13 0-.4-.1-.8-.29-1.16.87-.54 1.41-1.49 1.41-2.55zm-4.35 4.54l-3.35 1.93c-.1.06-.21.09-.32.09-.22 0-.44-.06-.63-.18l-3.35-1.93c-.39-.23-.63-.64-.63-1.1 0-.46.24-.87.63-1.1l3.35-1.93c.19-.12.41-.18.63-.18.11 0 .22.03.32.09l3.35 1.93c.39.23.63.64.63 1.1 0 .46-.24.87-.63 1.1zm-1.17-5.41l-1.84 1.06-1.84-1.06V8.53l1.84-1.06 1.84 1.06v2.13zm-3.35-4.22c.44 0 .83.22 1.06.59l-2.12 1.22-2.12-1.22c.23-.37.62-.59 1.06-.59zm-4.57 2.1l2.12 1.22v2.44l-2.12-1.22c-.36-.21-.59-.6-.59-1.02 0-.42.23-.81.59-1.02zm-.59 5.44c0-.42.23-.81.59-1.02l2.12-1.22v2.44l-2.12 1.22c-.36-.21-.59-.6-.59-1.02zm3.11 3.34c-.44 0-.83-.22-1.06-.59l2.12-1.22 2.12 1.22c-.23.37-.62.59-1.06.59zm4.57-2.1l-2.12-1.22v-2.44l2.12 1.22c.36.21.59.6.59 1.02 0 .42-.23.81-.59 1.02zm.59-5.44c0 .42-.23.81-.59 1.02l-2.12 1.22v-2.44l2.12-1.22c.36-.21.59-.6.59-1.02z"/>
+                  <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/>
+                  <path d="M12 6c-3.309 0-6 2.691-6 6s2.691 6 6 6 6-2.691 6-6-2.691-6-6-6zm0 10c-2.205 0-4-1.795-4-4s1.795-4 4-4 4 1.795 4 4-1.795 4-4 4z"/>
+                  <path d="M12 8c-2.205 0-4 1.795-4 4s1.795 4 4 4 4-1.795 4-4-1.795-4-4-4zm0 6c-1.103 0-2-.897-2-2s.897-2 2-2 2 .897 2 2-.897 2-2 2z"/>
                 </svg>
               </div>
               <span class="tool-name">ChatGPT</span>
               <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
             </div>
-            
-            <!-- Gemini (Ícone Estrela 4 Pontas com Degradê Fluidoidêntico) -->
+
+            <!-- Gemini — Estrela de 4 pontas com gradiente fluidoidêntico -->
             <div class="tool-card">
               <div class="tool-icon-box tool-ai-box">
                 <svg viewBox="0 0 24 24" fill="none">
@@ -474,6 +649,7 @@
               <span class="tool-name">Gemini</span>
               <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
             </div>
+
           </div>
         </div>
       </div>
@@ -484,7 +660,7 @@
   <!-- ================ DOBRA 4: EXPERIÊNCIA & COMPETÊNCIAS ================ -->
   <section id="experience" aria-label="Experiência e Formação">
     <div class="section-inner">
-      
+
       <div class="competencias-top">
         <h3 class="xp-col-title" style="margin-bottom: 12px;">Principais Competências</h3>
         <div class="competencias-grid">
@@ -508,7 +684,7 @@
       </div>
 
       <div class="xp-grid">
-        
+
         <div class="xp-col">
           <h3 class="xp-col-title">Experiência Profissional</h3>
           <ul class="xp-list">
@@ -614,7 +790,7 @@
   <footer id="footer">
     <div class="footer-inner">
       <p class="footer-headline">Vamos trabalhar <span>juntos? ;)</span></p>
-      
+
       <nav class="contact-icons" aria-label="Links de contato rodapé">
         <a href="https://www.linkedin.com/in/flaviopavan/" target="_blank" rel="noopener" class="contact-link" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -629,7 +805,7 @@
           <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
         </a>
       </nav>
-      
+
       <p class="footer-copy">&copy; 2026 Flavio Pavan. Todos os direitos reservados.</p>
     </div>
   </footer>
@@ -640,17 +816,81 @@
   </button>
 
   <script>
-    const btn = document.getElementById('backToTopBtn');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        btn.style.display = 'flex';
-      } else {
-        btn.style.display = 'none';
+    (function() {
+      'use strict';
+
+      // === BACK TO TOP ===
+      const btn = document.getElementById('backToTopBtn');
+      if (btn) {
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 400) {
+            btn.style.display = 'flex';
+          } else {
+            btn.style.display = 'none';
+          }
+        });
+        btn.addEventListener('click', function() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
       }
-    });
-    btn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+
+      // === NAVBAR MOBILE TOGGLE ===
+      const toggle = document.getElementById('navToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      if (toggle && navLinks) {
+        toggle.addEventListener('click', function() {
+          const isOpen = navLinks.classList.toggle('open');
+          toggle.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Fechar ao clicar em um link
+        navLinks.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            navLinks.classList.remove('open');
+            toggle.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+
+        // Fechar ao clicar fora (opcional)
+        document.addEventListener('click', function(e) {
+          if (!e.target.closest('.navbar')) {
+            navLinks.classList.remove('open');
+            toggle.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      // === ACTIVE LINK DESTAQUE NO SCROLL ===
+      const sections = document.querySelectorAll('section[id], header[id]');
+      const navLinksItems = document.querySelectorAll('.navbar-links a');
+
+      function updateActiveLink() {
+        let current = '';
+        const scrollY = window.scrollY + 100;
+
+        sections.forEach(function(section) {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinksItems.forEach(function(link) {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveLink);
+      window.addEventListener('load', updateActiveLink);
+    })();
   </script>
 </body>
 </html>
