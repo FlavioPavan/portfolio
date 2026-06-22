@@ -6,6 +6,7 @@
   <title>Flavio Pavan — Designer Gráfico & Diretor de Arte</title>
   <meta name="description" content="Portfólio de Flavio Pavan, Designer com mais de 30 anos de experiência multidisciplinar." />
 
+  <!-- Fontes do Projeto Original -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
@@ -192,8 +193,14 @@
     .tool-fg { background: #2C2C2C; color: #F24E1E; }
     .tool-ae { background: #000033; color: #9999FF; }
     .tool-pr { background: #000022; color: #EA77FF; }
-    .tool-ai-box { background: #F4F3EF; border: 1px solid #D1D1D6; }
-    .tool-ai-box svg { width: 32px; height: 32px; display: block; }
+    
+    /* Caixa das I.As conforme a imagem de referência */
+    .tool-ai-box { 
+      background: #F4F3EF; 
+      border: 1px solid #E2E1DD;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+    .tool-ai-box svg { width: 44px; height: 44px; display: block; }
 
     .tool-name { font-size: 0.8125rem; font-weight: 500; color: var(--text-dark); margin-bottom: 8px; }
     .tool-dots { display: flex; gap: 3px; }
@@ -325,6 +332,7 @@
 </head>
 <body>
 
+  <!-- ===================== DOBRA 1: HERO ===================== -->
   <header id="hero">
     <div class="hero-inner">
       <p class="hero-eyebrow">Diretor de Arte &amp; Designer Gráfico</p>
@@ -338,6 +346,7 @@
     </div>
   </header>
 
+  <!-- ==================== DOBRA 2: SOBRE ==================== -->
   <section id="about" aria-label="Sobre">
     <div class="section-inner about-grid">
       
@@ -376,11 +385,13 @@
     </div>
   </section>
 
+  <!-- =================== DOBRA 3: HABILIDADES =================== -->
   <section id="skills" aria-label="Habilidades">
     <div class="section-inner">
       <h2 class="section-title">Habilidades</h2>
 
       <div class="skills-groups">
+        <!-- Grupo 1: Ferramentas -->
         <div class="skills-group">
           <h3 class="skills-group-title">Ferramentas de Design</h3>
           <div class="tools-grid">
@@ -404,11 +415,13 @@
               <span class="tool-name">Figma</span>
               <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
             </div>
+            <!-- Ajustado para 4 Bolinhas Cheias (Pretas) -->
             <div class="tool-card">
               <div class="tool-icon-box tool-ae">Ae</div>
               <span class="tool-name">After Effects</span>
               <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
             </div>
+            <!-- Ajustado para 3 Bolinhas Cheias (Pretas) -->
             <div class="tool-card">
               <div class="tool-icon-box tool-pr">Pr</div>
               <span class="tool-name">Premiere</span>
@@ -417,26 +430,46 @@
           </div>
         </div>
 
+        <!-- Grupo 2: Inteligência Artificial (Ícones exatos e idênticos à imagem) -->
         <div class="skills-group">
           <h3 class="skills-group-title">Inteligência Artificial</h3>
           <div class="tools-grid">
+            <!-- Claude (Ícone "Starburst" Oficial Cor Terracota) -->
             <div class="tool-card">
-              <div class="tool-icon-box tool-ai-box" style="color: #D97736;">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.22 2a.44.44 0 0 0-.44.44v3.1a.44.44 0 0 0 .88 0V2.44A.44.44 0 0 0 12.22 2zM7.24 3.9a.44.44 0 0 0-.62 0l-2.2 2.2a.44.44 0 0 0 .62.62l2.2-2.2a.44.44 0 0 0 0-.62zm9.96 0a.44.44 0 0 0 0 .62l2.2 2.2a.44.44 0 0 0 .62-.62l-2.2-2.2a.44.44 0 0 0-.62 0zM12.22 8.35c-3.63 0-6.57 2.94-6.57 6.57 0 2.91 1.9 5.38 4.5 6.24.42.14.8-.13.8-.57v-1.92c0-.42-.26-.8-.66-.94a4.39 4.39 0 0 1-2.76-4.05c0-2.42 1.96-4.38 4.38-4.38s4.38 1.96 4.38 4.38a4.39 4.39 0 0 1-2.76 4.05c-.4.14-.66.52-.66.94v1.92c0 .44.38.81.8.57 2.6-.86 4.5-3.33 4.5-6.24 0-3.63-2.94-6.57-6.57-6.57z"/></svg>
+              <div class="tool-icon-box tool-ai-box">
+                <svg viewBox="0 0 32 32" fill="#D97736">
+                  <path d="M17.13 15.42c.86-1.07 1.88-2.18 2.71-3.15.34-.4.1-.96-.42-.99-.86-.06-2.1-.06-3.11-.02-.45.02-.75.43-.64.86.26 1.05.65 2.51.87 3.59.09.46.6.61.94.27.11-.12.29-.35.65-.56zm-1.89 2.59c1.07.86 2.18 1.88 3.15 2.71.4.34.96.1.99-.42.06-.86.06-2.1.02-3.11-.02-.45-.43-.75-.86-.64-1.05.26-2.51.65-3.59.87-.46.09-.61.6-.27.94.12.11.35.29.56.65zm-2.5-4.48c-.86 1.07-1.88 2.18-2.71 3.15-.34.4-.1.96.42.99.86.06 2.1.06 3.11.02.45-.02.75-.43.64-.86-.26-1.05-.65-2.51-.87-3.59-.09-.46-.6-.61-.94-.27-.11.12-.29.35-.65.56zm4.48-2.5c1.07-.86 2.18-1.88 3.15-2.71.4-.34.96-.1.99.42.06.86.06-2.1.02-3.11-.02-.45-.43-.75-.86-.64-1.05.26-2.51.65-3.59.87-.46.09-.61.6-.27.94.12.11.35.29.56.65zm-5.06-.74c-.26-1.05-.65-2.51-.87-3.59-.09-.46-.6-.61-.94-.27-.11.12-.29.35-.65.56-.86 1.07-1.88 2.18-2.71 3.15-.34.4-.1.96.42.99.86.06 2.1.06 3.11.02.45-.02.75-.43.64-.86zm4.5 10.14c.26 1.05.65 2.51.87 3.59.09.46.6.61.94.27.11-.12.29-.35.65-.56.86-1.07 1.88-2.18 2.71-3.15.34-.4.1-.96-.42-.99-.86-.06-2.1-.06-3.11-.02-.45.02-.75.43-.64.86zm-7.07-2.61c-1.07-.86-2.18-1.88-3.15-2.71-.4-.34-.96-.1-.99.42-.06.86-.06 2.1-.02 3.11.02.45.43.75.86.64 1.05-.26 2.51-.65 3.59-.87.46-.09.61-.6.27-.94-.12-.11-.35-.29-.56-.65z"/>
+                </svg>
               </div>
               <span class="tool-name">Claude</span>
               <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
             </div>
+            
+            <!-- ChatGPT (Ícone Vórtice Oficial Preto) -->
             <div class="tool-card">
-              <div class="tool-icon-box tool-ai-box" style="color: #10a37f;">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.74 11.53c.21-.4.32-.86.32-1.32 0-1.56-1.26-2.82-2.82-2.82-.44 0-.87.1-1.27.3-.43-.76-1.22-1.24-2.13-1.24-.41 0-.82.1-1.18.29-.53-.87-1.48-1.42-2.55-1.42-1.25 0-2.31.81-2.69 1.94-.4-.2-.84-.31-1.3-.31-1.56 0-2.82 1.26-2.82 2.82 0 .44.1.87.3 1.28-.76.43-1.25 1.22-1.25 2.13 0 .4.1.81.29 1.17-.87.53-1.42 1.48-1.42 2.54 0 1.57 1.26 2.83 2.82 2.83.45 0 .89-.11 1.29-.31.43.76 1.22 1.24 2.13 1.24.41 0 .81-.1 1.17-.29.54.87 1.49 1.41 2.55 1.41 1.56 0 2.82-1.26 2.82-2.82 0-.45-.1-.88-.3-1.29.77-.43 1.25-1.22 1.25-2.13 0-.4-.1-.8-.29-1.16.87-.54 1.41-1.49 1.41-2.55zm-4.35 4.54l-3.35 1.93c-.1.06-.21.09-.32.09-.22 0-.44-.06-.63-.18l-3.35-1.93c-.39-.23-.63-.64-.63-1.1 0-.46.24-.87.63-1.1l3.35-1.93c.19-.12.41-.18.63-.18.11 0 .22.03.32.09l3.35 1.93c.39.23.63.64.63 1.1 0 .46-.24.87-.63 1.1z"/></svg>
+              <div class="tool-icon-box tool-ai-box">
+                <svg viewBox="0 0 24 24" fill="#000000">
+                  <path d="M21.74 11.53c.21-.4.32-.86.32-1.32 0-1.56-1.26-2.82-2.82-2.82-.44 0-.87.1-1.27.3-.43-.76-1.22-1.24-2.13-1.24-.41 0-.82.1-1.18.29-.53-.87-1.48-1.42-2.55-1.42-1.25 0-2.31.81-2.69 1.94-.4-.2-.84-.31-1.3-.31-1.56 0-2.82 1.26-2.82 2.82 0 .44.1.87.3 1.28-.76.43-1.25 1.22-1.25 2.13 0 .4.1.81.29 1.17-.87.53-1.42 1.48-1.42 2.54 0 1.57 1.26 2.83 2.82 2.83.45 0 .89-.11 1.29-.31.43.76 1.22 1.24 2.13 1.24.41 0 .81-.1 1.17-.29.54.87 1.49 1.41 2.55 1.41 1.56 0 2.82-1.26 2.82-2.82 0-.45-.1-.88-.3-1.29.77-.43 1.25-1.22 1.25-2.13 0-.4-.1-.8-.29-1.16.87-.54 1.41-1.49 1.41-2.55zm-4.35 4.54l-3.35 1.93c-.1.06-.21.09-.32.09-.22 0-.44-.06-.63-.18l-3.35-1.93c-.39-.23-.63-.64-.63-1.1 0-.46.24-.87.63-1.1l3.35-1.93c.19-.12.41-.18.63-.18.11 0 .22.03.32.09l3.35 1.93c.39.23.63.64.63 1.1 0 .46-.24.87-.63 1.1zm-1.17-5.41l-1.84 1.06-1.84-1.06V8.53l1.84-1.06 1.84 1.06v2.13zm-3.35-4.22c.44 0 .83.22 1.06.59l-2.12 1.22-2.12-1.22c.23-.37.62-.59 1.06-.59zm-4.57 2.1l2.12 1.22v2.44l-2.12-1.22c-.36-.21-.59-.6-.59-1.02 0-.42.23-.81.59-1.02zm-.59 5.44c0-.42.23-.81.59-1.02l2.12-1.22v2.44l-2.12 1.22c-.36-.21-.59-.6-.59-1.02zm3.11 3.34c-.44 0-.83-.22-1.06-.59l2.12-1.22 2.12 1.22c-.23.37-.62.59-1.06.59zm4.57-2.1l-2.12-1.22v-2.44l2.12 1.22c.36.21.59.6.59 1.02 0 .42-.23.81-.59 1.02zm.59-5.44c0 .42-.23.81-.59 1.02l-2.12 1.22v-2.44l2.12-1.22c.36-.21.59-.6.59-1.02z"/>
+                </svg>
               </div>
               <span class="tool-name">ChatGPT</span>
               <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
             </div>
+            
+            <!-- Gemini (Ícone Estrela 4 Pontas com Degradê Fluidoidêntico) -->
             <div class="tool-card">
-              <div class="tool-icon-box tool-ai-box" style="color: #4285f4;">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c0 5.523 4.477 10 10 10-5.523 0-10 4.477-10 10 0-5.523-4.477-10-10-10 5.523 0 10-4.477 10-10z"/></svg>
+              <div class="tool-icon-box tool-ai-box">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <defs>
+                    <linearGradient id="gemini-fluid-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#FF5A79" />
+                      <stop offset="35%" stop-color="#FFC23D" />
+                      <stop offset="70%" stop-color="#2FD59B" />
+                      <stop offset="100%" stop-color="#3A82F6" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M12 2c0 5.523 4.477 10 10 10-5.523 0-10 4.477-10 10 0-5.523-4.477-10-10-10 5.523 0 10-4.477 10-10z" fill="url(#gemini-fluid-grad)" />
+                </svg>
               </div>
               <span class="tool-name">Gemini</span>
               <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
@@ -448,6 +481,7 @@
     </div>
   </section>
 
+  <!-- ================ DOBRA 4: EXPERIÊNCIA & COMPETÊNCIAS ================ -->
   <section id="experience" aria-label="Experiência e Formação">
     <div class="section-inner">
       
@@ -540,6 +574,7 @@
     </div>
   </section>
 
+  <!-- =================== DOBRA 5: TRABALHOS =================== -->
   <section id="portfolio" aria-label="Portfólio">
     <div class="section-inner">
       <h2 class="section-title">Trabalhos</h2>
@@ -575,6 +610,7 @@
     </div>
   </section>
 
+  <!-- ==================== DOBRA 6: FOOTER ==================== -->
   <footer id="footer">
     <div class="footer-inner">
       <p class="footer-headline">Vamos trabalhar <span>juntos? ;)</span></p>
@@ -598,6 +634,7 @@
     </div>
   </footer>
 
+  <!-- Botão Voltar ao Topo Flutuante -->
   <button class="back-to-top" id="backToTopBtn" aria-label="Voltar ao topo">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
