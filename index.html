@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flavio Pavan | Direção de Arte & Design</title>
+  <title>Flavio Pavan — Designer Gráfico</title>
   
-  <!-- Importando a fonte Inter para um visual clean e premium -->
+  <!-- Fonte moderna e limpa -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 
   <style>
-    /* Reset de Estilos Básicos */
     * {
       margin: 0;
       padding: 0;
@@ -20,188 +19,179 @@
     }
 
     body {
-      background-color: #08080a; /* Fundo ultra-dark para destacar o neon */
+      background-color: #0d0d0f; /* Fundo escuro do seu print */
       color: #ffffff;
       min-height: 100vh;
       display: flex;
       align-items: center;
+      justify-content: center;
     }
 
-    /* Estrutura da Primeira Dobra (Hero Section) */
-    .hero-container {
+    .container {
       display: flex;
+      max-width: 1200px;
       width: 100%;
-      min-height: 100vh;
+      padding: 40px 8%;
       align-items: center;
       justify-content: space-between;
-      padding: 0 8%;
-      gap: 60px;
-      overflow: hidden;
-      position: relative;
+      gap: 80px;
     }
 
-    /* Lado Esquerdo: Textos e Tagline */
-    .hero-content {
+    /* Coluna da Esquerda: Sua Foto Artística */
+    .profile-sidebar {
+      flex: 1;
+      max-width: 450px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 24px; /* Cantos arredondados elegantes */
+      object-fit: cover;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Coluna da Direita: Textos e Links */
+    .profile-content {
       flex: 1.2;
-      max-width: 650px;
-      z-index: 2;
+      max-width: 600px;
     }
 
-    .hero-subtitle {
-      color: #00ffaa; /* Verde neon calibrado com a imagem */
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 0.85rem;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-
-    .hero-title {
-      font-size: 3.8rem;
-      line-height: 1.1;
+    .main-title {
+      font-size: 5rem;
       font-weight: 900;
       margin-bottom: 24px;
-      letter-spacing: -1.5px;
+      letter-spacing: -2px;
     }
 
-    /* Efeito de degradê no texto principal */
-    .text-gradient {
-      background: linear-gradient(45deg, #ff007f, #00ffaa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .description {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #cccccc;
+      margin-bottom: 32px;
     }
 
-    .hero-description {
-      font-size: 1.15rem;
-      color: #a0a0a8;
-      line-height: 1.6;
+    /* Ajuste Perfeito dos Ícones Sociais (Correção do Balão/WhatsApp) */
+    .social-links {
+      display: flex;
+      gap: 16px;
       margin-bottom: 40px;
     }
 
-    /* Botões de Ação */
-    .hero-cta {
-      display: flex;
-      gap: 20px;
+    .social-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background-color: #1a1a1f;
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center; /* Centraliza verticalmente o ícone */
+      justify-content: center; /* Centraliza horizontalmente o ícone */
+      text-decoration: none;
+      transition: background-color 0.2s, transform 0.2s;
     }
 
-    .btn-primary {
-      background-color: #ff007f; /* Magenta puxado da foto */
-      color: white;
-      padding: 18px 36px;
-      border-radius: 6px;
+    .social-icon:hover {
+      background-color: #25d366; /* Cor do verde do whats no hover, ou mude para o seu laranja */
+      transform: translateY(-3px);
+    }
+    
+    .social-icon.li:hover { background-color: #0077b5; }
+    .social-icon.ig:hover { background-color: #e1306c; }
+    .social-icon.yt:hover { background-color: #ff0000; }
+
+    .social-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor; /* Faz o SVG herdar a cor branca do texto */
+    }
+
+    /* Botão Principal Laranja */
+    .btn-projects {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #ff5722; /* Laranja idêntico ao do seu print */
+      color: #ffffff;
+      padding: 16px 32px;
+      border-radius: 30px;
       text-decoration: none;
       font-weight: 700;
-      letter-spacing: 0.5px;
-      transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+      font-size: 1rem;
+      transition: background-color 0.2s, transform 0.2s;
     }
 
-    .btn-primary:hover {
-      background-color: #e0006c;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(255, 0, 127, 0.3);
+    .btn-projects:hover {
+      background-color: #e64a19;
+      transform: translateY(-2px);
     }
 
-    .btn-secondary {
-      border: 1px solid #2a2a30;
-      color: white;
-      padding: 18px 36px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background-color 0.2s, border-color 0.2s;
-    }
-
-    .btn-secondary:hover {
-      background-color: #121216;
-      border-color: #4a4a54;
-    }
-
-    /* Lado Direito: Imagem Artística */
-    .hero-image-wrapper {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      height: 85vh;
-    }
-
-    .hero-art-image {
-      max-height: 100%;
-      max-width: 100%;
-      object-fit: contain;
-      border-radius: 16px;
-      z-index: 2;
-      filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.9));
-    }
-
-    /* Glow de fundo simulando a iluminação ambiente da imagem */
-    .art-bg-glow {
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(0, 255, 170, 0.12) 0%, rgba(255, 0, 127, 0.04) 40%, rgba(0,0,0,0) 70%);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    /* Responsividade para Telas Menores (Tablets e Celulares) */
-    @media (max-width: 1024px) {
-      body {
-        align-items: flex-start;
-      }
-      
-      .hero-container {
-        flex-direction: column-reverse;
-        justify-content: center;
-        padding: 80px 6%;
+    /* Responsividade para Celular */
+    @media (max-width: 968px) {
+      .container {
+        flex-direction: column;
         text-align: center;
-        gap: 50px;
+        gap: 40px;
+        padding: 60px 4%;
       }
 
-      .hero-content {
-        width: 100%;
+      .main-title {
+        font-size: 3.5rem;
       }
 
-      .hero-title {
-        font-size: 2.8rem;
-      }
-
-      .hero-cta {
+      .social-links {
         justify-content: center;
-      }
-
-      .hero-image-wrapper {
-        height: 50vh;
-        width: 100%;
       }
     }
   </style>
 </head>
 <body>
 
-  <section class="hero-container">
-    <div class="hero-content">
-      <p class="hero-subtitle">Diretor de Arte & Designer Gráfico</p>
-      <h1 class="hero-title">Ideias que rompem o óbvio.<br><span class="text-gradient">Design que comanda atenção.</span></h1>
-      <p class="hero-description">
-        Combinando estética disruptiva, visão conceitual e direção de arte de alto impacto para transformar marcas e ditar tendências visuais.
-      </p>
-      <div class="hero-cta">
-        <a href="#portfolio" class="btn-primary">Explorar Portfólio</a>
-        <a href="#contato" class="btn-secondary">Vamos criar juntos?</a>
-      </div>
-    </div>
+  <div class="container">
     
-    <div class="hero-image-wrapper">
-      <!-- Puxando a sua imagem direto da pasta que você acabou de criar -->
-      <img src="assets/perfil-artistic.png" alt="Flavio Pavan - Diretor de Arte" class="hero-art-image">
-      <div class="art-bg-glow"></div>
+    <!-- Lado Esquerdo: Foto Substituindo o Espaço Reservado -->
+    <div class="profile-sidebar">
+      <img src="assets/perfil-artistic.png" alt="Flavio Pavan - Diretor de Arte" class="profile-img">
     </div>
-  </section>
+
+    <!-- Lado Direito: Seus Textos -->
+    <div class="profile-content">
+      <h1 class="main-title">Olá!</h1>
+      <p class="description">
+        Designer com mais de 30 anos de experiência, unindo o rigor técnico da produção gráfica tradicional com a dinamicidade do ecossistema digital focado em conversão. Especialista em criar soluções visuais estratégicas que elevam marcas, desde a diagramação editorial até landing pages de alta performance e ativos para campanhas publicitárias.
+      </p>
+
+      <!-- Ícones Sociais Corrigidos e Alinhados com SVG de Alta Resolução -->
+      <div class="social-links">
+        <!-- LinkedIn -->
+        <a href="#" class="social-icon li" title="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        </a>
+        <!-- Instagram -->
+        <a href="#" class="social-icon ig" title="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m11.4 1.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 1 0-6z"/></svg>
+        </a>
+        <!-- WhatsApp (Ajustado, Centralizado e Perfeito) -->
+        <a href="#" class="social-icon" title="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.72 14.05c-.24.69-1.42 1.26-1.95 1.32-.48.06-.94.24-3.05-.59-2.7-1.06-4.42-3.8-4.56-3.98-.13-.18-1.08-1.44-1.08-2.75 0-1.31.69-1.96.93-2.22.24-.26.54-.33.72-.33.18 0 .36.01.52.02.16.01.38-.06.59.44.22.53.75 1.83.82 1.97.07.15.12.32.02.51-.1.2-.15.32-.3.49-.15.18-.31.4-.44.53-.15.15-.3.32-.13.62.17.3.74 1.22 1.59 1.98.1.09.2.17.31.25.69.58 1.22.76 1.54.92.3.15.48.13.66-.08.18-.22.8-1.06.91-1.31.11-.25.22-.2.38-.14.16.06 1.05.49 1.23.58.18.09.3.13.35.21.05.08.05.48-.19 1.17z"/></svg>
+        </a>
+        <!-- E-mail -->
+        <a href="#" class="social-icon" title="E-mail">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4l-8 5l-8-5V6l8 5l8-5v2z"/></svg>
+        </a>
+      </div>
+
+      <!-- Botão Laranja -->
+      <a href="#projetos" class="btn-projects">
+        Conheça meus projetos
+        <svg style="width:16px; height:16px; fill:currentColor;" viewBox="0 0 24 24"><path d="M11 4v12.17l-5.58-5.59L4 12l8 8 8-8-1.41-1.41L13 16.17V4h-2z"/></svg>
+      </a>
+    </div>
+
+  </div>
 
 </body>
 </html>
