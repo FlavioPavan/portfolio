@@ -1,715 +1,357 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Flavio Pavan - Designer Gráfico Pleno e Diretor de Arte com mais de três décadas de experiência em Design Digital, Branding e Identidade Visual.">
-    <title>Flavio Pavan | Direção de Arte & Design</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <style>
-        /* ========================================
-           CSS RESET & VARIÁVEIS
-        ======================================== */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flavio Maia Pavan — Designer Gráfico</title>
+  <meta name="description" content="Portfólio de Flavio Maia Pavan, Designer Gráfico com foco em criação de peças criativas e únicas." />
 
-        :root {
-            /* Cores principais */
-            --bg-primary: #0f0f11;
-            --bg-secondary: #1a1a1f;
-            --bg-card: #16161a;
-            --bg-hover: #1f1f24;
-            
-            /* Cores de texto */
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0a8;
-            --text-muted: #6b6b75;
-            
-            /* Cor de destaque */
-            --accent-primary: #7c3aed;
-            --accent-secondary: #a855f7;
-            --accent-glow: rgba(124, 58, 237, 0.3);
-            
-            /* Gradientes */
-            --gradient-accent: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            
-            /* Tipografia */
-            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            
-            /* Espaçamentos */
-            --section-padding: clamp(4rem, 10vw, 8rem);
-            --container-max: 1200px;
-            
-            /* Transições */
-            --transition-fast: 0.2s ease;
-            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            
-            /* Bordas */
-            --border-radius: 12px;
-            --border-radius-lg: 20px;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-family);
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* ========================================
-           LAYOUT UTILITIES
-        ======================================== */
-        .container {
-            width: 100%;
-            max-width: var(--container-max);
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        section {
-            padding: var(--section-padding) 0;
-        }
-
-        /* ========================================
-           HERO SECTION
-        ======================================== */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-            pointer-events: none;
-            opacity: 0.5;
-        }
-
-        .hero__content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero__name {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero__tagline {
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
-            color: var(--text-secondary);
-            font-weight: 400;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-        }
-
-        .hero__tagline span {
-            color: var(--text-muted);
-        }
-
-        .hero__description {
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            font-size: clamp(1rem, 2vw, 1.125rem);
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .hero__cta-group {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* ========================================
-           BOTÕES
-        ======================================== */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            font-family: var(--font-family);
-            font-size: 0.95rem;
-            font-weight: 500;
-            text-decoration: none;
-            border-radius: var(--border-radius);
-            transition: all var(--transition-smooth);
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn--primary {
-            background: var(--gradient-accent);
-            color: var(--text-primary);
-            box-shadow: 0 4px 20px var(--accent-glow);
-        }
-
-        .btn--primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px var(--accent-glow);
-        }
-
-        .btn--secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--text-muted);
-        }
-
-        .btn--secondary:hover {
-            border-color: var(--accent-primary);
-            color: var(--accent-secondary);
-        }
-
-        /* ========================================
-           SOBRE & HABILIDADES
-        ======================================== */
-        .about {
-            background: var(--bg-secondary);
-        }
-
-        .section__header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section__title {
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .section__subtitle {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: var(--border-radius-lg);
-            padding: 2rem;
-            transition: all var(--transition-smooth);
-        }
-
-        .skill-card:hover {
-            background: var(--bg-hover);
-            border-color: rgba(124, 58, 237, 0.3);
-            transform: translateY(-4px);
-        }
-
-        .skill-card__icon {
-            width: 48px;
-            height: 48px;
-            background: var(--gradient-accent);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.25rem;
-        }
-
-        .skill-card__title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .skill-card__list {
-            list-style: none;
-        }
-
-        .skill-card__list li {
-            color: var(--text-secondary);
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            font-size: 0.95rem;
-        }
-
-        .skill-card__list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 6px;
-            height: 6px;
-            background: var(--accent-primary);
-            border-radius: 50%;
-        }
-
-        /* ========================================
-           PORTFÓLIO / GALERIA
-        ======================================== */
-        .portfolio {
-            background: var(--bg-primary);
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 900px) {
-            .portfolio-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .portfolio-item {
-            position: relative;
-            aspect-ratio: 4 / 3;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .portfolio-item__image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform var(--transition-smooth);
-        }
-
-        .portfolio-item__overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                to top,
-                rgba(15, 15, 17, 0.95) 0%,
-                rgba(15, 15, 17, 0.4) 50%,
-                transparent 100%
-            );
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 1.5rem;
-            opacity: 0;
-            transition: opacity var(--transition-smooth);
-        }
-
-        .portfolio-item:hover .portfolio-item__image {
-            transform: scale(1.08);
-        }
-
-        .portfolio-item:hover .portfolio-item__overlay {
-            opacity: 1;
-        }
-
-        .portfolio-item__title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .portfolio-item__category {
-            font-size: 0.85rem;
-            color: var(--accent-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .portfolio-item__behance {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            margin-top: 0.75rem;
-            font-size: 0.8rem;
-            color: #fff;
-            background: var(--accent-primary);
-            padding: 0.3rem 0.75rem;
-            border-radius: 20px;
-            font-weight: 500;
-        }
-
-        a.portfolio-item {
-            display: block;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* ========================================
-           RODAPÉ / CONTATO
-        ======================================== */
-        .footer {
-            background: var(--bg-secondary);
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .footer__title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer__subtitle {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-        }
-
-        .social-link {
-            width: 50px;
-            height: 50px;
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            font-size: 1.25rem;
-            text-decoration: none;
-            transition: all var(--transition-smooth);
-        }
-
-        .social-link:hover {
-            background: var(--accent-primary);
-            border-color: var(--accent-primary);
-            color: var(--text-primary);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px var(--accent-glow);
-        }
-
-        .footer__copyright {
-            color: var(--text-muted);
-            font-size: 0.875rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* ========================================
-           SCROLL INDICATOR (HERO)
-        ======================================== */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-muted);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            animation: bounce 2s infinite;
-        }
-
-        .scroll-indicator i {
-            font-size: 1.25rem;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-5px);
-            }
-        }
-
-        /* ========================================
-           RESPONSIVIDADE ADICIONAL
-        ======================================== */
-        @media (max-width: 768px) {
-            .hero__tagline {
-                display: flex;
-                flex-direction: column;
-                gap: 0.25rem;
-            }
-            
-            .hero__tagline span {
-                display: none;
-            }
-
-            .hero__cta-group {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 280px;
-                justify-content: center;
-            }
-
-            .skill-card {
-                padding: 1.5rem;
-            }
-        }
-    </style>
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/about.css" />
+  <link rel="stylesheet" href="css/skills.css" />
+  <link rel="stylesheet" href="css/experience.css" />
+  <link rel="stylesheet" href="css/portfolio.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/lightbox.css" />
 </head>
 <body>
 
-    <!-- ========================================
-         HERO SECTION
-    ======================================== -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero__content">
-                <h1 class="hero__name">Flavio Pavan</h1>
-                <p class="hero__tagline">
-                    Direção de Arte <span>•</span> 
-                    Branding & Identidade Visual <span>•</span> 
-                    Estratégia Visual para Marketing Digital
-                </p>
-                <p class="hero__description">
-                    Ao longo de mais de três décadas, acompanhei a transformação do design — 
-                    da prancheta e fotolito à era digital. Essa jornada me deu uma visão única: 
-                    domínio técnico tradicional combinado com fluência nas ferramentas e 
-                    demandas do universo online de hoje.
-                </p>
-                <div class="hero__cta-group">
-                    <!-- SUBSTITUA O LINK DO WHATSAPP PELO SEU NÚMERO -->
-                    <a href="https://wa.me/5511951776198" class="btn btn--primary" target="_blank" rel="noopener">
-                        <i class="fab fa-whatsapp"></i>
-                        Falar no WhatsApp
-                    </a>
-                    <!-- SUBSTITUA PELO LINK DO SEU CURRÍCULO EM PDF -->
-                    <a href="#" class="btn btn--secondary">
-                        <i class="fas fa-download"></i>
-                        Baixar Currículo
-                    </a>
-                </div>
+  <!-- ===================== HERO ===================== -->
+  <header id="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Designer Gráfico</p>
+      <div class="hero-headline">
+        <span class="hero-pre">Bem-vindo ao meu</span>
+        <h1 class="hero-title">
+          Portfólio<span class="hero-badge">2026</span>
+        </h1>
+      </div>
+      <p class="hero-name-credit">Flavio Maia Pavan</p>
+    </div>
+  </header>
+
+  <!-- ==================== SOBRE ==================== -->
+  <section id="about" aria-label="Sobre">
+    <div class="section-inner about-grid">
+
+      <div class="about-photo-col">
+        <figure class="about-photo-wrap">
+          <img src="assets/images/foto.jpg" alt="Foto de Flavio Maia Pavan" />
+        </figure>
+      </div>
+
+      <div class="about-content">
+        <h2 class="about-heading">Olá!</h2>
+        <p class="about-bio">
+          Profissional em Produção Multimídia com foco em Design Gráfico.<br>
+          Criando peças criativas e únicas, adaptando-se à essência de cada projeto. Facilidade em trabalhar em equipe e lidar com múltiplas demandas simultaneamente.
+        </p>
+
+        <nav class="contact-icons about-contacts" aria-label="Links de contato">
+          <a href="[SEU LINK DO LINKEDIN AQUI]" target="_blank" rel="noopener" class="contact-link" aria-label="LinkedIn">
+            <img src="assets/icons/linkedin.svg" alt="LinkedIn" width="22" height="22" />
+          </a>
+          <a href="[SEU LINK DO INSTAGRAM AQUI]" target="_blank" rel="noopener" class="contact-link" aria-label="Instagram">
+            <img src="assets/icons/instagram.svg" alt="Instagram" width="22" height="22" />
+          </a>
+          <a href="[SEU LINK DO WHATSAPP AQUI]" target="_blank" rel="noopener" class="contact-link" aria-label="WhatsApp">
+            <img src="assets/icons/whatsapp.svg" alt="WhatsApp" width="22" height="22" />
+          </a>
+          <a href="mailto:[SEU EMAIL AQUI]" class="contact-link" aria-label="E-mail">
+            <img src="assets/icons/email.svg" alt="E-mail" width="22" height="22" />
+          </a>
+        </nav>
+
+        <a href="#portfolio" class="cta-button">
+          Conheça meus projetos
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =================== HABILIDADES =================== -->
+  <section id="skills" aria-label="Habilidades">
+    <div class="section-inner">
+      <h2 class="section-title">Habilidades</h2>
+
+      <div class="skills-groups">
+
+        <div class="skills-group">
+          <h3 class="skills-group-title">Ferramentas de Design</h3>
+          <div class="tools-grid">
+
+            <div class="tool-card">
+              <div class="tool-icon">
+                <img src="assets/icons/Adobe_Photoshop_CC_icon.svg.png" alt="Adobe Photoshop" width="56" height="56" />
+              </div>
+              <span class="tool-name">Photoshop</span>
+              <div class="tool-dots" aria-label="Nível: Avançado">
+                <span class="dot filled"></span><span class="dot filled"></span>
+                <span class="dot filled"></span><span class="dot filled"></span>
+                <span class="dot filled"></span>
+              </div>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
 
-    <!-- ========================================
-         SOBRE & HABILIDADES
-    ======================================== -->
-    <section class="about" id="sobre">
-        <div class="container">
-            <header class="section__header">
-                <h2 class="section__title">Competências & Especialidades</h2>
-                <p class="section__subtitle">
-                    Combinação de expertise em design tradicional e digital para entregar 
-                    soluções visuais completas e estratégicas.
-                </p>
-            </header>
-
-            <div class="skills-grid">
-                <!-- Design Digital -->
-                <article class="skill-card">
-                    <div class="skill-card__icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3 class="skill-card__title">Design Digital</h3>
-                    <ul class="skill-card__list">
-                        <li>Posts e carrosséis para redes sociais</li>
-                        <li>E-mail marketing e newsletters</li>
-                        <li>Landing pages e banners web</li>
-                        <li>GIFs animados e motion básico</li>
-                        <li>Adaptação de materiais para múltiplos formatos</li>
-                    </ul>
-                </article>
-
-                <!-- Design Gráfico -->
-                <article class="skill-card">
-                    <div class="skill-card__icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3 class="skill-card__title">Design Gráfico</h3>
-                    <ul class="skill-card__list">
-                        <li>Diagramação de revistas e catálogos</li>
-                        <li>Folders, flyers e materiais promocionais</li>
-                        <li>Anúncios para mídia impressa</li>
-                        <li>Embalagens e PDV</li>
-                        <li>Papelaria e identidade visual corporativa</li>
-                    </ul>
-                </article>
-
-                <!-- Hard Skills -->
-                <article class="skill-card">
-                    <div class="skill-card__icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3 class="skill-card__title">Hard Skills</h3>
-                    <ul class="skill-card__list">
-                        <li>Tratamento de imagem avançado (Photoshop)</li>
-                        <li>Direção de arte e criação conceitual</li>
-                        <li>Fechamento de arquivo para gráfica</li>
-                        <li>Adobe Creative Suite completo</li>
-                        <li>Gestão de múltiplos projetos simultâneos</li>
-                    </ul>
-                </article>
+            <div class="tool-card">
+              <div class="tool-icon">
+                <img src="assets/icons/ILLUSTRATOIR.png" alt="Adobe Illustrator" width="56" height="56" />
+              </div>
+              <span class="tool-name">Illustrator</span>
+              <div class="tool-dots" aria-label="Nível: Avançado">
+                <span class="dot filled"></span><span class="dot filled"></span>
+                <span class="dot filled"></span><span class="dot filled"></span>
+                <span class="dot filled"></span>
+              </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ========================================
-         PORTFÓLIO / GALERIA
-    ======================================== -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <header class="section__header">
-                <h2 class="section__title">Portfólio Selecionado</h2>
-                <p class="section__subtitle">
-                    Uma curadoria dos meus trabalhos mais recentes em design digital, 
-                    branding e diagramação editorial.
-                </p>
-            </header>
-
-            <div class="portfolio-grid">
-                
-                <!-- ITEM 1 -->
-                <a href="https://www.behance.net/gallery/168766279/Landing-Pages" target="_blank" rel="noopener" class="portfolio-item">
-                    <img src="https://picsum.photos/800/600?random=1" alt="Projeto de Branding" class="portfolio-item__image">
-                    <div class="portfolio-item__overlay">
-                        <h3 class="portfolio-item__title">Landing Pages</h3>
-                        <span class="portfolio-item__category">Branding</span>
-                        <span class="portfolio-item__behance"><i class="fab fa-behance"></i> Ver no Behance</span>
-                    </div>
-                </a>
-
-                <!-- ITEM 2 -->
-                <a href="https://www.behance.net/gallery/50458807/Consumidor-Moderno" target="_blank" rel="noopener" class="portfolio-item">
-                    <img src="https://picsum.photos/800/600?random=2" alt="Diagramação de Revista" class="portfolio-item__image">
-                    <div class="portfolio-item__overlay">
-                        <h3 class="portfolio-item__title">Consumidor Moderno</h3>
-                        <span class="portfolio-item__category">Editorial</span>
-                        <span class="portfolio-item__behance"><i class="fab fa-behance"></i> Ver no Behance</span>
-                    </div>
-                </a>
-
-                <!-- ITEM 3 -->
-                <a href="https://www.behance.net/gallery/200684487/Post-Instagran-e-outras-plataformas-para-MKT-Looke" target="_blank" rel="noopener" class="portfolio-item">
-                    <img src="https://picsum.photos/800/600?random=3" alt="Campanha Digital" class="portfolio-item__image">
-                    <div class="portfolio-item__overlay">
-                        <h3 class="portfolio-item__title">Posts & Social Media — Looke</h3>
-                        <span class="portfolio-item__category">Digital</span>
-                        <span class="portfolio-item__behance"><i class="fab fa-behance"></i> Ver no Behance</span>
-                    </div>
-                </a>
-
-                <!-- ITEM 4 -->
-                <a href="https://www.behance.net/gallery/42918309/Anuncios-diversos" target="_blank" rel="noopener" class="portfolio-item">
-                    <img src="https://picsum.photos/800/600?random=4" alt="Material Promocional" class="portfolio-item__image">
-                    <div class="portfolio-item__overlay">
-                        <h3 class="portfolio-item__title">Anúncios Diversos</h3>
-                        <span class="portfolio-item__category">Impresso</span>
-                        <span class="portfolio-item__behance"><i class="fab fa-behance"></i> Ver no Behance</span>
-                    </div>
-                </a>
-
-                <!-- ITEM 5 -->
-                <a href="https://www.behance.net/gallery/44479747/landingpage-CONAREC" target="_blank" rel="noopener" class="portfolio-item">
-                    <img src="https://picsum.photos/800/600?random=5" alt="Landing Page CONAREC" class="portfolio-item__image">
-                    <div class="portfolio-item__overlay">
-                        <h3 class="portfolio-item__title">Landing Page — CONAREC</h3>
-                        <span class="portfolio-item__category">E-mail MKT</span>
-                        <span class="portfolio-item__behance"><i class="fab fa-behance"></i> Ver no Behance</span>
-                    </div>
-                </a>
-
-                <!-- ITEM 6 -->
-                <a href="https://www.behance.net/gallery/167859015/E-BOOKS-DESENVOLVIDO-PARA-ACE-CORTEX" target="_blank" rel="noopener" class="portfolio-item">
-                    <img src="https://picsum.photos/800/600?random=6" alt="E-books ACE Cortex" class="portfolio-item__image">
-                    <div class="portfolio-item__overlay">
-                        <h3 class="portfolio-item__title">E-books — ACE Cortex</h3>
-                        <span class="portfolio-item__category">Editorial</span>
-                        <span class="portfolio-item__behance"><i class="fab fa-behance"></i> Ver no Behance</span>
-                    </div>
-                </a>
-
+            <div class="tool-card">
+              <div class="tool-icon">
+                <img src="assets/icons/figma.png" alt="Figma" width="56" height="56" />
+              </div>
+              <span class="tool-name">Figma</span>
+              <div class="tool-dots" aria-label="Nível: Médio">
+                <span class="dot filled"></span><span class="dot filled"></span>
+                <span class="dot filled"></span><span class="dot"></span>
+                <span class="dot"></span>
+              </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ========================================
-         RODAPÉ / CONTATO
-    ======================================== -->
-    <footer class="footer" id="contato">
-        <div class="container">
-            <h2 class="footer__title">Vamos Conversar?</h2>
-            <p class="footer__subtitle">Estou disponível para novos projetos e parcerias.</p>
-            
-            <nav class="social-links" aria-label="Redes sociais">
-                <!-- SUBSTITUA PELOS SEUS LINKS REAIS -->
-                <a href="https://br.linkedin.com/in/flaviopavan" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://www.behance.net/flavioea72" class="social-link" target="_blank" rel="noopener" aria-label="Behance">
-                    <i class="fab fa-behance"></i>
-                </a>
-                <a href="mailto:flavio_pavan@hotmail.com" class="social-link" aria-label="E-mail">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </nav>
+            <div class="tool-card">
+              <div class="tool-icon">
+                <img src="assets/icons/Adobe_After_Effects_CC_icon.svg.png" alt="Adobe After Effects" width="56" height="56" />
+              </div>
+              <span class="tool-name">After Effects</span>
+              <div class="tool-dots" aria-label="Nível: Básico">
+                <span class="dot filled"></span><span class="dot filled"></span>
+                <span class="dot"></span><span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+            </div>
 
-            <p class="footer__copyright">
-                © 2024 Flavio Pavan. Todos os direitos reservados.
-            </p>
+            <div class="tool-card">
+              <div class="tool-icon">
+                <img src="assets/icons/Adobe_Premiere_Pro_CC_icon.svg.png" alt="Adobe Premiere Pro" width="56" height="56" />
+              </div>
+              <span class="tool-name">Premiere</span>
+              <div class="tool-dots" aria-label="Nível: Básico">
+                <span class="dot filled"></span><span class="dot filled"></span>
+                <span class="dot"></span><span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+            </div>
+
+          </div>
         </div>
-    </footer>
+
+        <div class="skills-group">
+          <h3 class="skills-group-title">Inteligência Artificial</h3>
+          <div class="tools-grid tools-grid--ai">
+
+            <div class="tool-card">
+              <div class="tool-icon">
+                <img src="assets/icons/Claude_AI_symbol.svg.png" alt="Claude" width="56" height="56" />
+              </div>
+              <span class="tool-name">Claude</span>
+              <div class="tool-dots" aria-label="Nível: Avançado">
+                <span class="dot filled"></span><span class="dot filled"></span>
+                <span class="dot filled"></span><span class="dot filled"></span>
+                <span class="dot filled"></span>
+              </div>
+            </div>
+
+            <div class="tool-card">
+              <div class="tool-icon">
+                <img src="assets/icons/ChatGPT-Logo.png" alt="ChatGPT" width="56" height="56" />
+              </div>
+              <span class="tool-name">ChatGPT</span>
+              <div class="tool-dots" aria-label="Nível: Avançado">
+                <span class="dot filled"></span><span class="dot filled"></span>
+                <span class="dot filled"></span><span class="dot filled"></span>
+                <span class="dot filled"></span>
+              </div>
+            </div>
+
+            <div class="tool-card">
+              <div class="tool-icon">
+                <img src="assets/icons/Google_Gemini_icon_2025.svg.png" alt="Gemini" width="56" height="56" />
+              </div>
+              <span class="tool-name">Gemini</span>
+              <div class="tool-dots" aria-label="Nível: Avançado">
+                <span class="dot filled"></span><span class="dot filled"></span>
+                <span class="dot filled"></span><span class="dot filled"></span>
+                <span class="dot filled"></span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ EXPERIÊNCIA ================ -->
+  <section id="experience" aria-label="Experiência e Formação">
+    <div class="section-inner">
+      <div class="xp-grid">
+
+        <div class="xp-col">
+          <h3 class="xp-group-title">Experiência</h3>
+          <ul class="xp-list">
+            <li class="xp-item">
+              <p class="xp-role">Designer Gráfico</p>
+              <p class="xp-company">Encripta</p>
+              <p class="xp-date">Atualmente</p>
+            </li>
+            <li class="xp-item">
+              <p class="xp-role">[Cargo Anterior]</p>
+              <p class="xp-company">[Empresa Anterior]</p>
+              <p class="xp-date">[Mês/Ano] — [Mês/Ano]</p>
+            </li>
+            <li class="xp-item">
+              <p class="xp-role">Designer Gráfico</p>
+              <p class="xp-company">Freelancer</p>
+              <p class="xp-date">[Ano] — [Ano]</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="xp-col">
+          <h3 class="xp-group-title">Formação</h3>
+          <ul class="xp-list">
+            <li class="xp-item">
+              <p class="xp-role">[Nome do Curso]</p>
+              <p class="xp-company">[Instituição]</p>
+              <p class="xp-date">[Ano] — [Ano]</p>
+            </li>
+            <li class="xp-item">
+              <p class="xp-role">Design Gráfico</p>
+              <p class="xp-company">[Instituição]</p>
+              <p class="xp-date">[Ano] — [Ano]</p>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== PORTFOLIO =================== -->
+  <section id="portfolio" aria-label="Portfólio">
+    <div class="section-inner">
+      <h2 class="section-title">Trabalhos</h2>
+
+      <div class="filter-bar" role="group" aria-label="Filtrar por categoria">
+        <button class="pill active" data-filter="all">Todos</button>
+        <button class="pill" data-filter="social-design">Social Design</button>
+        <button class="pill" data-filter="email-marketing">E-mail Marketing</button>
+        <button class="pill" data-filter="arte-estatica-video">Arte Estática + Vídeo</button>
+        <button class="pill" data-filter="motion-design">Motion Design</button>
+        <button class="pill" data-filter="personagem-3d">Personagem 3D</button>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <!-- SOCIAL DESIGN -->
+        <article class="card" data-category="social-design"
+          data-images='["assets/projects/social-design/[SUA-IMAGEM-1].jpg"]'
+          tabindex="0" aria-label="[NOME DO PROJETO] — Projeto 1">
+          <div class="card-thumb" style="--ph-ratio:1/1;">
+            <img src="assets/projects/social-design/[SUA-IMAGEM-1].jpg" alt="[NOME DO PROJETO] — Projeto 1" loading="lazy" />
+          </div>
+          <div class="card-label">[Nome do Projeto]</div>
+        </article>
+
+        <article class="card" data-category="social-design"
+          data-images='["assets/projects/social-design/[SUA-IMAGEM-2].jpg"]'
+          tabindex="0" aria-label="[NOME DO PROJETO] — Projeto 2">
+          <div class="card-thumb" style="--ph-ratio:1/1;">
+            <img src="assets/projects/social-design/[SUA-IMAGEM-2].jpg" alt="[NOME DO PROJETO] — Projeto 2" loading="lazy" />
+          </div>
+          <div class="card-label">[Nome do Projeto]</div>
+        </article>
+
+        <!-- EMAIL MARKETING -->
+        <article class="card" data-category="email-marketing" data-images='["",""]' tabindex="0" aria-label="E-mail Marketing 1">
+          <div class="card-thumb placeholder" style="--ph-bg:#5e4a2a; --ph-ratio:3/4;"></div>
+          <div class="card-label">E-mail Marketing</div>
+        </article>
+        
+        <!-- ARTE ESTÁTICA + VÍDEO -->
+        <article class="card" data-category="arte-estatica-video" data-images='["",""]' tabindex="0" aria-label="Arte Estática + Vídeo 1">
+          <div class="card-thumb placeholder" style="--ph-bg:#3d2a5e; --ph-ratio:16/9;"></div>
+          <div class="card-label">Arte Estática + Vídeo</div>
+        </article>
+
+      </div><!-- /portfolio-grid -->
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <p class="footer-headline">Vamos trabalhar juntos? <span class="footer-wink">;)</span></p>
+      <nav class="contact-icons" aria-label="Links de contato rodapé">
+        <a href="[SEU LINK DO LINKEDIN AQUI]" target="_blank" rel="noopener" class="contact-link" aria-label="LinkedIn">
+          <img src="assets/icons/linkedin.svg" alt="LinkedIn" width="22" height="22" />
+        </a>
+        <a href="[SEU LINK DO INSTAGRAM AQUI]" target="_blank" rel="noopener" class="contact-link" aria-label="Instagram">
+          <img src="assets/icons/instagram.svg" alt="Instagram" width="22" height="22" />
+        </a>
+        <a href="[SEU LINK DO WHATSAPP AQUI]" target="_blank" rel="noopener" class="contact-link" aria-label="WhatsApp">
+          <img src="assets/icons/whatsapp.svg" alt="WhatsApp" width="22" height="22" />
+        </a>
+        <a href="mailto:[SEU EMAIL AQUI]" class="contact-link" aria-label="E-mail">
+          <img src="assets/icons/email.svg" alt="E-mail" width="22" height="22" />
+        </a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 Flavio Maia Pavan. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Botão voltar ao topo -->
+  <button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <!-- =================== LIGHTBOX =================== -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Visualização de projeto" hidden>
+    <div class="lb-backdrop"></div>
+    <div class="lb-container">
+      <button class="lb-close" aria-label="Fechar">&times;</button>
+      <button class="lb-prev" aria-label="Anterior">&#8249;</button>
+      <div class="lb-media" aria-live="polite"></div>
+      <button class="lb-next" aria-label="Próximo">&#8250;</button>
+      <div class="lb-dots" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <script type="module" src="js/carousel.js"></script>
+  <script type="module" src="js/filter.js"></script>
+  <script type="module" src="js/lightbox.js"></script>
+
+  <script>
+    const btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 
 </body>
 </html>
