@@ -6,7 +6,6 @@
   <title>Flavio Pavan — Designer Gráfico & Diretor de Arte</title>
   <meta name="description" content="Portfólio de Flavio Pavan, Designer com mais de 30 anos de experiência multidisciplinar." />
 
-  <!-- Fontes do Projeto Original -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
@@ -44,7 +43,7 @@
     .section-inner { max-width: 1200px; margin: 0 auto; padding: 100px 24px; }
 
     /* ==========================================================================
-       DOBRA 1: HERO (image_90663d.png)
+       DOBRA 1: HERO
        ========================================================================== */
     #hero {
       min-height: 100vh;
@@ -106,12 +105,11 @@
     }
 
     /* ==========================================================================
-       DOBRA 2: SOBRE (image_905059.png)
+       DOBRA 2: SOBRE
        ========================================================================== */
     #about { background-color: #0F0F10; border-top: 1px solid #1C1C1E; }
     .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: center; }
     
-    /* Container Ajustado para Exibir sua Foto Perfeitamente */
     .about-photo-wrapper {
       width: 100%;
       aspect-ratio: 3 / 4;
@@ -134,7 +132,6 @@
     .about-heading { font-family: var(--font-title); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 24px; }
     .about-bio { font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.6; color: #D1D1D6; margin-bottom: 32px; }
     
-    /* Botões Sociais Redondos Estilo Referência */
     .contact-icons { display: flex; gap: 16px; margin-bottom: 40px; }
     .contact-link {
       width: 48px;
@@ -151,7 +148,6 @@
     .contact-link:hover { background-color: var(--brand-fluor); border-color: var(--brand-fluor); }
     .contact-link:hover svg { fill: var(--text-dark); }
     
-    /* CTA Pill */
     .cta-button {
       display: inline-flex;
       align-items: center;
@@ -167,7 +163,7 @@
     .cta-button:hover { background-color: var(--brand-fluor-hover); transform: translateY(-2px); }
 
     /* ==========================================================================
-       DOBRA 3: HABILIDADES (image_905361.png)
+       DOBRA 3: HABILIDADES
        ========================================================================== */
     #skills { background-color: var(--bg-light); color: var(--text-dark); }
     .section-title { font-family: var(--font-title); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; margin-bottom: 48px; text-transform: none; }
@@ -190,14 +186,14 @@
       font-size: 1.5rem;
       color: #FFF;
     }
-    /* Estilização Manual dos Ícones Nativos mantendo a fidelidade visual */
     .tool-ps { background: #001E36; color: #00C8FF; }
     .tool-ai { background: #330000; color: #FF9A00; }
     .tool-id { background: #330014; color: #FF3366; }
     .tool-fg { background: #2C2C2C; color: #F24E1E; }
     .tool-ae { background: #000033; color: #9999FF; }
     .tool-pr { background: #000022; color: #EA77FF; }
-    .tool-ai-box { background: #F4F3EF; border: 1px solid #D1D1D6; color: #121212; }
+    .tool-ai-box { background: #F4F3EF; border: 1px solid #D1D1D6; }
+    .tool-ai-box svg { width: 32px; height: 32px; display: block; }
 
     .tool-name { font-size: 0.8125rem; font-weight: 500; color: var(--text-dark); margin-bottom: 8px; }
     .tool-dots { display: flex; gap: 3px; }
@@ -205,11 +201,9 @@
     .dot.filled { background-color: var(--text-dark); }
 
     /* ==========================================================================
-       DOBRA 4: EXPERIÊNCIA & COMPETÊNCIAS (image_905ea2.png)
+       DOBRA 4: EXPERIÊNCIA & COMPETÊNCIAS
        ========================================================================== */
     #experience { background-color: var(--bg-dark); }
-    
-    /* Seção de Principais Competências adicionada harmonicamente no topo da dobra */
     .competencias-top { margin-bottom: 64px; background: #0F0F10; padding: 32px; border-radius: 24px; border: 1px solid #1C1C1E; }
     .competencias-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-top: 24px; }
     .competencia-item h4 { font-family: var(--font-title); font-size: 1.15rem; color: var(--brand-fluor); margin-bottom: 8px; }
@@ -218,7 +212,6 @@
     .xp-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; }
     .xp-col-title { font-family: var(--font-body); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-fluor); margin-bottom: 40px; }
     
-    /* Linha do tempo arquitetônica idêntica à foto */
     .xp-list { border-left: 2px solid #1C1C1E; padding-left: 24px; position: relative; }
     .xp-item { position: relative; margin-bottom: 40px; }
     .xp-item::before {
@@ -238,7 +231,7 @@
     .xp-details { font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; margin-top: 8px; padding-left: 12px; border-left: 1px solid #2C2C2E; }
 
     /* ==========================================================================
-       DOBRA 5: TRABALHOS / PORTFÓLIO (image_905f20.png)
+       DOBRA 5: TRABALHOS / PORTFÓLIO
        ========================================================================== */
     #portfolio { background-color: #0F0F10; border-top: 1px solid #1C1C1E; position: relative; }
     .filter-bar { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
@@ -268,7 +261,6 @@
       padding: 24px;
       position: relative;
       overflow: hidden;
-      group: hover;
     }
     .portfolio-placeholder::before {
       content: 'Em produção';
@@ -285,7 +277,6 @@
     .portfolio-placeholder-title { font-family: var(--font-title); font-size: 1.25rem; font-weight: 700; margin-top: 8px; }
     .portfolio-placeholder-cat { font-size: 0.8125rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
 
-    /* Floating Back to Top Button */
     .back-to-top {
       position: fixed;
       bottom: 32px;
@@ -307,7 +298,7 @@
     .back-to-top:hover { transform: translateY(-4px); background-color: var(--brand-fluor-hover); }
 
     /* ==========================================================================
-       DOBRA 6: FOOTER (image_9062c0.jpg)
+       DOBRA 6: FOOTER
        ========================================================================== */
     #footer { background-color: var(--bg-dark); border-top: 1px solid #1C1C1E; text-align: center; }
     .footer-inner { padding: 80px 24px; display: flex; flex-direction: column; align-items: center; }
@@ -334,7 +325,6 @@
 </head>
 <body>
 
-  <!-- ===================== DOBRA 1: HERO ===================== -->
   <header id="hero">
     <div class="hero-inner">
       <p class="hero-eyebrow">Diretor de Arte &amp; Designer Gráfico</p>
@@ -348,11 +338,9 @@
     </div>
   </header>
 
-  <!-- ==================== DOBRA 2: SOBRE ==================== -->
   <section id="about" aria-label="Sobre">
     <div class="section-inner about-grid">
       
-      <!-- Bloco de Imagem Ajustado com a sua foto real -->
       <div class="about-photo-col">
         <div class="about-photo-wrapper">
           <img src="assets/perfil-artistic.png" alt="Flavio Pavan">
@@ -365,7 +353,6 @@
           Designer com mais de 30 anos de experiência multidisciplinar, unindo o rigor técnico da produção gráfica tradicional com a agilidade do design digital focado em conversão. Especialista em criar ecossistemas visuais que elevam marcas, desde a diagramação editorial complexa até landing pages de alta performance e ativos para marketing digital.
         </p>
 
-        <!-- Redes Sociais com seus links e ícone do WhatsApp totalmente corrigido -->
         <nav class="contact-icons" aria-label="Links de contato">
           <a href="https://www.linkedin.com/in/flaviopavan/" target="_blank" rel="noopener" class="contact-link" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -389,13 +376,11 @@
     </div>
   </section>
 
-  <!-- =================== DOBRA 3: HABILIDADES =================== -->
   <section id="skills" aria-label="Habilidades">
     <div class="section-inner">
       <h2 class="section-title">Habilidades</h2>
 
       <div class="skills-groups">
-        <!-- Grupo 1: Ferramentas -->
         <div class="skills-group">
           <h3 class="skills-group-title">Ferramentas de Design</h3>
           <div class="tools-grid">
@@ -422,32 +407,37 @@
             <div class="tool-card">
               <div class="tool-icon-box tool-ae">Ae</div>
               <span class="tool-name">After Effects</span>
-              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
             </div>
             <div class="tool-card">
               <div class="tool-icon-box tool-pr">Pr</div>
               <span class="tool-name">Premiere</span>
-              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
             </div>
           </div>
         </div>
 
-        <!-- Grupo 2: IA -->
         <div class="skills-group">
           <h3 class="skills-group-title">Inteligência Artificial</h3>
           <div class="tools-grid">
             <div class="tool-card">
-              <div class="tool-icon-box tool-ai-box" style="color: #D97736;">Cc</div>
+              <div class="tool-icon-box tool-ai-box" style="color: #D97736;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.22 2a.44.44 0 0 0-.44.44v3.1a.44.44 0 0 0 .88 0V2.44A.44.44 0 0 0 12.22 2zM7.24 3.9a.44.44 0 0 0-.62 0l-2.2 2.2a.44.44 0 0 0 .62.62l2.2-2.2a.44.44 0 0 0 0-.62zm9.96 0a.44.44 0 0 0 0 .62l2.2 2.2a.44.44 0 0 0 .62-.62l-2.2-2.2a.44.44 0 0 0-.62 0zM12.22 8.35c-3.63 0-6.57 2.94-6.57 6.57 0 2.91 1.9 5.38 4.5 6.24.42.14.8-.13.8-.57v-1.92c0-.42-.26-.8-.66-.94a4.39 4.39 0 0 1-2.76-4.05c0-2.42 1.96-4.38 4.38-4.38s4.38 1.96 4.38 4.38a4.39 4.39 0 0 1-2.76 4.05c-.4.14-.66.52-.66.94v1.92c0 .44.38.81.8.57 2.6-.86 4.5-3.33 4.5-6.24 0-3.63-2.94-6.57-6.57-6.57z"/></svg>
+              </div>
               <span class="tool-name">Claude</span>
               <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
             </div>
             <div class="tool-card">
-              <div class="tool-icon-box tool-ai-box" style="color: #10a37f;">Gpt</div>
+              <div class="tool-icon-box tool-ai-box" style="color: #10a37f;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.74 11.53c.21-.4.32-.86.32-1.32 0-1.56-1.26-2.82-2.82-2.82-.44 0-.87.1-1.27.3-.43-.76-1.22-1.24-2.13-1.24-.41 0-.82.1-1.18.29-.53-.87-1.48-1.42-2.55-1.42-1.25 0-2.31.81-2.69 1.94-.4-.2-.84-.31-1.3-.31-1.56 0-2.82 1.26-2.82 2.82 0 .44.1.87.3 1.28-.76.43-1.25 1.22-1.25 2.13 0 .4.1.81.29 1.17-.87.53-1.42 1.48-1.42 2.54 0 1.57 1.26 2.83 2.82 2.83.45 0 .89-.11 1.29-.31.43.76 1.22 1.24 2.13 1.24.41 0 .81-.1 1.17-.29.54.87 1.49 1.41 2.55 1.41 1.56 0 2.82-1.26 2.82-2.82 0-.45-.1-.88-.3-1.29.77-.43 1.25-1.22 1.25-2.13 0-.4-.1-.8-.29-1.16.87-.54 1.41-1.49 1.41-2.55zm-4.35 4.54l-3.35 1.93c-.1.06-.21.09-.32.09-.22 0-.44-.06-.63-.18l-3.35-1.93c-.39-.23-.63-.64-.63-1.1 0-.46.24-.87.63-1.1l3.35-1.93c.19-.12.41-.18.63-.18.11 0 .22.03.32.09l3.35 1.93c.39.23.63.64.63 1.1 0 .46-.24.87-.63 1.1z"/></svg>
+              </div>
               <span class="tool-name">ChatGPT</span>
               <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
             </div>
             <div class="tool-card">
-              <div class="tool-icon-box tool-ai-box" style="color: #4285f4;">Ge</div>
+              <div class="tool-icon-box tool-ai-box" style="color: #4285f4;">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c0 5.523 4.477 10 10 10-5.523 0-10 4.477-10 10 0-5.523-4.477-10-10-10 5.523 0 10-4.477 10-10z"/></svg>
+              </div>
               <span class="tool-name">Gemini</span>
               <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
             </div>
@@ -458,11 +448,9 @@
     </div>
   </section>
 
-  <!-- ================ DOBRA 4: EXPERIÊNCIA & COMPETÊNCIAS ================ -->
   <section id="experience" aria-label="Experiência e Formação">
     <div class="section-inner">
       
-      <!-- Subdobra: Principais Competências -->
       <div class="competencias-top">
         <h3 class="xp-col-title" style="margin-bottom: 12px;">Principais Competências</h3>
         <div class="competencias-grid">
@@ -485,10 +473,8 @@
         </div>
       </div>
 
-      <!-- Grid Duas Colunas Paralelas (Estilo Exato da Imagem de Linha do Tempo) -->
       <div class="xp-grid">
         
-        <!-- Coluna Esquerda: Experiência -->
         <div class="xp-col">
           <h3 class="xp-col-title">Experiência Profissional</h3>
           <ul class="xp-list">
@@ -519,7 +505,6 @@
           </ul>
         </div>
 
-        <!-- Coluna Direita: Formação -->
         <div class="xp-col">
           <h3 class="xp-col-title">Formação e Certificações</h3>
           <ul class="xp-list">
@@ -555,12 +540,10 @@
     </div>
   </section>
 
-  <!-- =================== DOBRA 5: TRABALHOS =================== -->
   <section id="portfolio" aria-label="Portfólio">
     <div class="section-inner">
       <h2 class="section-title">Trabalhos</h2>
 
-      <!-- Filtros conforme especificação original -->
       <div class="filter-bar" role="group" aria-label="Filtrar projetos">
         <button class="pill active">Todos</button>
         <button class="pill">Digital Design</button>
@@ -569,7 +552,6 @@
         <button class="pill">Landing Pages</button>
       </div>
 
-      <!-- Grid Estrutural pronto esperando seus uploads futuros -->
       <div class="portfolio-grid">
         <div class="portfolio-placeholder">
           <div>
@@ -593,12 +575,10 @@
     </div>
   </section>
 
-  <!-- ==================== DOBRA 6: FOOTER ==================== -->
   <footer id="footer">
     <div class="footer-inner">
       <p class="footer-headline">Vamos trabalhar <span>juntos? ;)</span></p>
       
-      <!-- Ícones Sociais do Rodapé com o WhatsApp Corrigido -->
       <nav class="contact-icons" aria-label="Links de contato rodapé">
         <a href="https://www.linkedin.com/in/flaviopavan/" target="_blank" rel="noopener" class="contact-link" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -618,13 +598,11 @@
     </div>
   </footer>
 
-  <!-- Botão Voltar ao Topo Flutuante -->
   <button class="back-to-top" id="backToTopBtn" aria-label="Voltar ao topo">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
   <script>
-    // Lógica simples nativa para o botão voltar ao topo funcionar fluidamente
     const btn = document.getElementById('backToTopBtn');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 400) {
