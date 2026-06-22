@@ -5,366 +5,211 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flavio Pavan — Designer Gráfico</title>
   
-  <!-- Fonte Premium Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-
   <style>
-    /* RESET GLOBAL */
+    /* Reset e estilo da base original */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-
-    html {
-      scroll-behavior: smooth; /* Rolagem suave entre as dobras */
     }
 
     body {
-      background-color: #0d0d0f;
+      background-color: #0d0d0f; /* Fundo escuro original */
       color: #ffffff;
-      overflow-x: hidden;
-    }
-
-    /* ==========================================================================
-       DOBRA 1: O LAYOUT LARANJA ORIGINAL (HERO CLASSIC)
-       ========================================================================== */
-    .fold-classic {
-      background-color: #0d0d0f;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 60px 8%;
+      position: relative;
     }
 
-    .container-classic {
+    .hero-container {
       display: flex;
       max-width: 1200px;
       width: 100%;
+      padding: 40px 8%;
       align-items: center;
       justify-content: space-between;
-      gap: 80px;
+      gap: 60px;
     }
 
-    .classic-sidebar {
+    /* CONTAINER DA FOTO (Substituindo o Espaço Reservado) */
+    .photo-area {
       flex: 1;
-      max-width: 450px;
+      max-width: 420px;
       display: flex;
       justify-content: center;
     }
 
-    .classic-img {
+    .profile-photo {
       width: 100%;
-      max-width: 400px;
+      max-width: 380px;
       height: auto;
-      border-radius: 24px;
+      border-radius: 24px; /* Cantos arredondados finos do seu layout */
       object-fit: cover;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     }
 
-    .classic-content {
+    /* CONTEÚDO DA DIREITA */
+    .text-area {
       flex: 1.2;
       max-width: 600px;
     }
 
-    .classic-title {
+    .title-ola {
       font-size: 5rem;
       font-weight: 900;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       letter-spacing: -2px;
     }
 
-    .classic-description {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: #cccccc;
-      margin-bottom: 32px;
+    .main-description {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #e0e0e6;
+      margin-bottom: 30px;
     }
 
-    /* Ícones Sociais Corrigidos (WhatsApp no Centro) */
-    .social-links {
+    /* BOTÕES SOCIAIS (Correção de alinhamento do WhatsApp) */
+    .social-row {
       display: flex;
-      gap: 16px;
-      margin-bottom: 40px;
+      gap: 14px;
+      margin-bottom: 35px;
     }
 
-    .social-icon {
-      width: 46px;
-      height: 46px;
+    .social-balloon {
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      background-color: #1a1a1f;
+      background-color: #16161a; /* Cor do balão original */
       color: #ffffff;
       display: inline-flex;
-      align-items: center; /* Centraliza verticalmente */
-      justify-content: center; /* Centraliza horizontalmente */
+      align-items: center;     /* Centraliza o ícone verticalmente */
+      justify-content: center;  /* Centraliza o ícone horizontalmente */
       text-decoration: none;
-      transition: background-color 0.2s, transform 0.2s;
+      transition: background-color 0.2s;
     }
 
-    .social-icon:hover {
-      background-color: #ff5722; /* Laranja no hover */
-      transform: translateY(-3px);
+    .social-balloon:hover {
+      background-color: #ff5722; /* Hover sutil no laranja original */
     }
 
-    .social-icon svg {
-      width: 20px;
-      height: 20px;
+    .social-balloon svg {
+      width: 18px;
+      height: 18px;
       fill: currentColor;
     }
 
-    /* Botão Laranja Original */
-    .btn-orange {
+    /* BOTÃO LARANJA ORIGINAL */
+    .btn-cta-orange {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background-color: #ff5722;
+      background-color: #ff5722; /* Laranja original */
       color: #ffffff;
-      padding: 16px 32px;
-      border-radius: 30px;
+      padding: 14px 28px;
+      border-radius: 25px;
       text-decoration: none;
       font-weight: 700;
-      font-size: 1rem;
-      transition: background-color 0.2s, transform 0.2s;
+      font-size: 0.95rem;
+      transition: background-color 0.2s;
     }
 
-    .btn-orange:hover {
+    .btn-cta-orange:hover {
       background-color: #e64a19;
-      transform: translateY(-2px);
     }
 
-
-    /* ==========================================================================
-       DOBRA 2: O LAYOUT CONCEITUAL (NEON ARTISTIC)
-       ========================================================================== */
-    .fold-artistic {
-      background-color: #050507; /* Tom ligeiramente mais escuro para transição */
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 8%;
-      border-top: 1px solid #141419; /* Divisão sutil */
-    }
-
-    .container-artistic {
-      display: flex;
-      max-width: 1200px;
-      width: 100%;
-      align-items: center;
-      justify-content: space-between;
-      gap: 80px;
-    }
-
-    .artistic-content {
-      flex: 1.2;
-      max-width: 650px;
-      z-index: 2;
-    }
-
-    .artistic-subtitle {
-      color: #00ffaa; /* Verde neon */
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 0.85rem;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-
-    .artistic-title {
-      font-size: 3.8rem;
-      line-height: 1.1;
-      font-weight: 900;
-      margin-bottom: 24px;
-      letter-spacing: -1.5px;
-    }
-
-    .text-gradient {
-      background: linear-gradient(45deg, #ff007f, #00ffaa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .artistic-description {
-      font-size: 1.15rem;
-      color: #a0a0a8;
-      line-height: 1.6;
-      margin-bottom: 40px;
-    }
-
-    /* Botões Neon/Magenta */
-    .artistic-cta {
-      display: flex;
-      gap: 20px;
-    }
-
-    .btn-magenta {
-      background-color: #ff007f;
-      color: white;
-      padding: 18px 36px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
-    }
-
-    .btn-magenta:hover {
-      background-color: #e0006c;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(255, 0, 127, 0.3);
-    }
-
-    .btn-outline {
-      border: 1px solid #2a2a30;
-      color: white;
-      padding: 18px 36px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background-color 0.2s, border-color 0.2s;
-    }
-
-    .btn-outline:hover {
-      background-color: #121216;
-      border-color: #4a4a54;
-    }
-
-    .artistic-sidebar {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-
-    .artistic-img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 16px;
-      z-index: 2;
-      filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.9));
-    }
-
-    .art-bg-glow {
+    /* BOTÃO FLUTUANTE (VOLTAR AO TOPO) */
+    .back-to-top {
       position: absolute;
-      width: 120%;
-      height: 120%;
-      background: radial-gradient(circle, rgba(0, 255, 170, 0.12) 0%, rgba(255, 0, 127, 0.04) 40%, rgba(0,0,0,0) 70%);
-      z-index: 1;
-      pointer-events: none;
+      bottom: 40px;
+      right: 40px;
+      width: 44px;
+      height: 44px;
+      background-color: #ff5722;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
 
+    .back-to-top svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
 
-    /* ==========================================================================
-       RESPONSIVIDADE (MOBILE PARA AMBAS AS DOBRAS)
-       ========================================================================== */
+    /* Responsivo padrão */
     @media (max-width: 968px) {
-      .container-classic, .container-artistic {
+      .hero-container {
         flex-direction: column;
         text-align: center;
-        gap: 40px;
-        padding: 40px 0;
+        padding: 60px 4%;
       }
-
-      .container-artistic {
-        flex-direction: column-reverse; /* Foto em cima no mobile da arte */
-      }
-
-      .classic-title {
-        font-size: 3.5rem;
-      }
-
-      .artistic-title {
-        font-size: 2.6rem;
-      }
-
-      .social-links, .artistic-cta {
+      .social-row {
         justify-content: center;
+      }
+      .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- ==========================================
-       DOBRA 1: CLASSIC ORANGE (Layout Original)
-       ========================================== -->
-  <section class="fold-classic">
-    <div class="container-classic">
-      
-      <!-- Lado Esquerdo: Sua foto carregando perfeitamente -->
-      <div class="classic-sidebar">
-        <img src="assets/perfil-artistic.png" alt="Flavio Pavan" class="classic-img">
-      </div>
+  <section class="hero-container">
+    
+    <!-- Lado Esquerdo: Sua foto carregando no lugar do espaço reservado -->
+    <div class="photo-area">
+      <img src="assets/perfil-artistic.png" alt="Flavio Pavan" class="profile-photo">
+    </div>
 
-      <!-- Lado Direito: Textos Laranja -->
-      <div class="classic-content">
-        <h1 class="classic-title">Olá!</h1>
-        <p class="classic-description">
-          Designer com mais de 30 anos de experiência, unindo o rigor técnico da produção gráfica tradicional com a dinamicidade do ecossistema digital focado em conversão. Especialista em criar soluções visuais estratégicas que elevam marcas, desde a diagramação editorial até landing pages de alta performance e ativos para campanhas publicitárias.
-        </p>
+    <!-- Lado Direito: Seus textos e fontes originais -->
+    <div class="text-area">
+      <h1 class="title-ola">Olá!</h1>
+      <p class="main-description">
+        Designer com mais de 30 anos de experiência multidisciplinar, unindo o rigor técnico da produção gráfica tradicional com a agilidade do design digital focado em conversão. Especialista em criar ecossistemas visuais que elevam marcas, desde a diagramação editorial complexa até landing pages de alta performance e ativos para marketing digital.
+      </p>
 
-        <!-- Ícones Redes Sociais Alinhados milimetricamente -->
-        <div class="social-links">
-          <!-- LinkedIn -->
-          <a href="#" class="social-icon" title="LinkedIn">
-            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
-          </a>
-          <!-- Instagram -->
-          <a href="#" class="social-icon" title="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m11.4 1.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 1 0-6z"/></svg>
-          </a>
-          <!-- WhatsApp Corrigido e Centralizado -->
-          <a href="#" class="social-icon" title="WhatsApp">
-            <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.72 14.05c-.24.69-1.42 1.26-1.95 1.32-.48.06-.94.24-3.05-.59-2.7-1.06-4.42-3.8-4.56-3.98-.13-.18-1.08-1.44-1.08-2.75 0-1.31.69-1.96.93-2.22.24-.26.54-.33.72-.33.18 0 .36.01.52.02.16.01.38-.06.59.44.22.53.75 1.83.82 1.97.07.15.12.32.02.51-.1.2-.15.32-.3.49-.15.18-.31.4-.44.53-.15.15-.3.32-.13.62.17.3.74 1.22 1.59 1.98.1.09.2.17.31.25.69.58 1.22.76 1.54.92.3.15.48.13.66-.08.18-.22.8-1.06.91-1.31.11-.25.22-.2.38-.14.16.06 1.05.49 1.23.58.18.09.3.13.35.21.05.08.05.48-.19 1.17z"/></svg>
-          </a>
-          <!-- E-mail -->
-          <a href="#" class="social-icon" title="E-mail">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4l-8 5l-8-5V6l8 5l8-5v2z"/></svg>
-          </a>
-        </div>
-
-        <!-- Botão Direcionando para a Dobra Conceitual -->
-        <a href="#artistic-fold" class="btn-orange">
-          Conheça meus projetos
-          <svg style="width:16px; height:16px; fill:currentColor;" viewBox="0 0 24 24"><path d="M11 4v12.17l-5.58-5.59L4 12l8 8 8-8-1.41-1.41L13 16.17V4h-2z"/></svg>
+      <!-- Linha de ícones com a centralização corrigida por flexbox -->
+      <div class="social-row">
+        <!-- LinkedIn -->
+        <a href="#" class="social-balloon" title="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        </a>
+        <!-- Instagram -->
+        <a href="#" class="social-balloon" title="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m11.4 1.1a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10m0 2a3 3 0 1 0 0 6 3 3 0 0 1 0-6z"/></svg>
+        </a>
+        <!-- WhatsApp (Ajustado e perfeitamente centralizado no meio do balão) -->
+        <a href="#" class="social-balloon" title="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.72 14.05c-.24.69-1.42 1.26-1.95 1.32-.48.06-.94.24-3.05-.59-2.7-1.06-4.42-3.8-4.56-3.98-.13-.18-1.08-1.44-1.08-2.75 0-1.31.69-1.96.93-2.22.24-.26.54-.33.72-.33.18 0 .36.01.52.02.16.01.38-.06.59.44.22.53.75 1.83.82 1.97.07.15.12.32.02.51-.1.2-.15.32-.3.49-.15.18-.31.4-.44.53-.15.15-.3.32-.13.62.17.3.74 1.22 1.59 1.98.1.09.2.17.31.25.69.58 1.22.76 1.54.92.3.15.48.13.66-.08.18-.22.8-1.06.91-1.31.11-.25.22-.2.38-.14.16.06 1.05.49 1.23.58.18.09.3.13.35.21.05.08.05.48-.19 1.17z"/></svg>
+        </a>
+        <!-- E-mail -->
+        <a href="#" class="social-balloon" title="E-mail">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4l-8 5l-8-5V6l8 5l8-5v2z"/></svg>
         </a>
       </div>
 
+      <!-- Botão Laranja Original -->
+      <a href="#projetos" class="btn-cta-orange">
+        Conheça meus projetos
+        <svg style="width:14px; height:14px; fill:currentColor;" viewBox="0 0 24 24"><path d="M11 4v12.17l-5.58-5.59L4 12l8 8 8-8-1.41-1.41L13 16.17V4h-2z"/></svg>
+      </a>
     </div>
+
   </section>
 
-  <!-- ==========================================
-       DOBRA 2: NEON ARTISTIC (Sua Nova Tagline)
-       ========================================== -->
-  <section class="fold-artistic" id="artistic-fold">
-    <div class="container-artistic">
-      
-      <!-- Lado Esquerdo: Frase de Impacto e Cores Neon -->
-      <div class="artistic-content">
-        <p class="artistic-subtitle">Diretor de Arte & Designer Gráfico</p>
-        <h1 class="artistic-title">Ideias que rompem o óbvio.<br><span class="text-gradient">Design que comanda atenção.</span></h1>
-        <p class="artistic-description">
-          Combinando estética disruptiva, visão conceitual e direção de arte de alto impacto para transformar marcas e ditar tendências visuais.
-        </p>
-        <div class="artistic-cta">
-          <a href="#" class="btn-magenta">Explorar Portfólio</a>
-          <a href="#" class="btn-outline">Vamos criar juntos?</a>
-        </div>
-      </div>
-      
-      <!-- Lado Direito: A mesma foto ambientada com Neon Glow -->
-      <div class="artistic-sidebar">
-        <img src="assets/perfil-artistic.png" alt="Direção de Arte" class="artistic-img">
-        <div class="art-bg-glow"></div>
-      </div>
-
-    </div>
-  </section>
+  <!-- Botão de subir original do canto inferior direito -->
+  <a href="#" class="back-to-top" title="Voltar ao topo">
+    <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </a>
 
 </body>
 </html>
