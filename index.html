@@ -3,242 +3,556 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flavio Maia Pavan — Designer Gráfico</title>
-  <meta name="description" content="Portfólio de Flavio Maia Pavan, Designer Gráfico com foco em criação de peças criativas e únicas." />
+  <title>Flavio Pavan — Designer Gráfico & Diretor de Arte</title>
+  <meta name="description" content="Portfólio de Flavio Pavan, Designer com mais de 30 anos de experiência multidisciplinar." />
 
+  <!-- Fontes do Projeto Original -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/tokens.css" />
-  <link rel="stylesheet" href="css/layout.css" />
-  <link rel="stylesheet" href="css/hero.css" />
-  <link rel="stylesheet" href="css/about.css" />
-  <link rel="stylesheet" href="css/skills.css" />
-  <link rel="stylesheet" href="css/experience.css" />
-  <link rel="stylesheet" href="css/portfolio.css" />
-  <link rel="stylesheet" href="css/footer.css" />
-  <link rel="stylesheet" href="css/lightbox.css" />
+  <style>
+    /* ==========================================================================
+       TOKENS DE DESIGN & VARIÁVEIS (Ajustado para Laranja Fluor)
+       ========================================================================== */
+    :root {
+      --bg-dark: #0A0A0A;
+      --bg-light: #EDECE6; /* Tom creme do bloco de habilidades */
+      --text-white: #FFFFFF;
+      --text-dark: #121212;
+      --text-muted: #8E8E93;
+      --text-muted-dark: #48484A;
+      
+      /* SUBSTITUIÇÃO: Verde Fluor por Laranja Fluor Neon */
+      --brand-fluor: #FF5F1F; 
+      --brand-fluor-hover: #FF7A45;
+      
+      --card-bg: #141416;
+      --font-title: 'Syne', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Reset Geral Basico */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { background-color: var(--bg-dark); color: var(--text-white); font-family: var(--font-body); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    ul, ol { list-style: none; }
+    img { max-width: 100%; display: block; }
+    
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 100px 24px; }
+
+    /* ==========================================================================
+       DOBRA 1: HERO (image_90663d.png)
+       ========================================================================== */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 40px 24px;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; w-index: 2; width: 100%; position: relative; }
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+    .hero-headline { margin-bottom: 40px; }
+    .hero-pre {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 1.5rem;
+      color: var(--text-white);
+      margin-bottom: 8px;
+    }
+    .hero-title {
+      font-family: var(--font-title);
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 800;
+      line-height: 0.9;
+      text-transform: none;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .hero-badge {
+      background-color: var(--brand-fluor);
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      font-size: clamp(0.875rem, 2vw, 1.25rem);
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 20px;
+      display: inline-block;
+      line-height: 1;
+      margin-left: 8px;
+    }
+    .hero-name-credit {
+      position: absolute;
+      bottom: -40px;
+      right: 0;
+      font-family: var(--font-title);
+      text-transform: uppercase;
+      color: var(--text-muted-dark);
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      letter-spacing: 0.05em;
+    }
+
+    /* ==========================================================================
+       DOBRA 2: SOBRE (image_905059.png)
+       ========================================================================== */
+    #about { background-color: #0F0F10; border-top: 1px solid #1C1C1E; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: center; }
+    
+    /* Placeholder estratégico para sua imagem futura */
+    .about-photo-wrapper {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: linear-gradient(135deg, #1C1C1E 0%, #121214 100%);
+      border: 2px dashed var(--text-muted-dark);
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      padding: 32px;
+      text-align: center;
+      transition: var(--transition);
+    }
+    .about-photo-wrapper:hover { border-color: var(--brand-fluor); }
+    .about-photo-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      color: var(--brand-fluor);
+    }
+
+    .about-content { display: flex; flex-direction: column; align-items: flex-start; }
+    .about-heading { font-family: var(--font-title); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 24px; }
+    .about-bio { font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.6; color: #D1D1D6; margin-bottom: 32px; }
+    
+    /* Botões Sociais Redondos Estilo Referência */
+    .contact-icons { display: flex; gap: 16px; margin-bottom: 40px; }
+    .contact-link {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: #1C1C1E;
+      border: 1px solid #2C2C2E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .contact-link svg { width: 20px; height: 20px; fill: var(--text-white); transition: var(--transition); }
+    .contact-link:hover { background-color: var(--brand-fluor); border-color: var(--brand-fluor); }
+    .contact-link:hover svg { fill: var(--text-dark); }
+    
+    /* CTA Pill */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background-color: var(--brand-fluor);
+      color: var(--text-dark);
+      padding: 16px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    .cta-button:hover { background-color: var(--brand-fluor-hover); transform: translateY(-2px); }
+
+    /* ==========================================================================
+       DOBRA 3: HABILIDADES (image_905361.png)
+       ========================================================================== */
+    #skills { background-color: var(--bg-light); color: var(--text-dark); }
+    .section-title { font-family: var(--font-title); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; margin-bottom: 48px; text-transform: none; }
+    .skills-groups { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; }
+    .skills-group-title { font-family: var(--font-body); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #636366; margin-bottom: 32px; border-bottom: 1px solid #D1D1D6; padding-bottom: 12px; }
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 24px; }
+    
+    .tool-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .tool-icon-box {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background-color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #FFF;
+    }
+    /* Estilização Manual dos Ícones Nativos mantendo a fidelidade visual */
+    .tool-ps { background: #001E36; color: #00C8FF; }
+    .tool-ai { background: #330000; color: #FF9A00; }
+    .tool-id { background: #330014; color: #FF3366; }
+    .tool-fg { background: #2C2C2C; color: #F24E1E; }
+    .tool-ae { background: #000033; color: #9999FF; }
+    .tool-pr { background: #000022; color: #EA77FF; }
+    .tool-ai-box { background: #F4F3EF; border: 1px solid #D1D1D6; color: #121212; }
+
+    .tool-name { font-size: 0.8125rem; font-weight: 500; color: var(--text-dark); margin-bottom: 8px; }
+    .tool-dots { display: flex; gap: 3px; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background-color: #D1D1D6; }
+    .dot.filled { background-color: var(--text-dark); }
+
+    /* ==========================================================================
+       DOBRA 4: EXPERIÊNCIA & COMPETÊNCIAS (image_905ea2.png)
+       ========================================================================== */
+    #experience { background-color: var(--bg-dark); }
+    
+    /* Seção de Principais Competências adicionada harmonicamente no topo da dobra */
+    .competencias-top { margin-bottom: 64px; background: #0F0F10; padding: 32px; border-radius: 24px; border: 1px solid #1C1C1E; }
+    .competencias-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-top: 24px; }
+    .competencia-item h4 { font-family: var(--font-title); font-size: 1.15rem; color: var(--brand-fluor); margin-bottom: 8px; }
+    .competencia-item p { font-size: 0.875rem; line-height: 1.5; color: var(--text-muted); }
+
+    .xp-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; }
+    .xp-col-title { font-family: var(--font-body); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-fluor); margin-bottom: 40px; }
+    
+    /* Linha do tempo arquitetônica idêntica à foto */
+    .xp-list { border-left: 2px solid #1C1C1E; padding-left: 24px; position: relative; }
+    .xp-item { position: relative; margin-bottom: 40px; }
+    .xp-item::before {
+      content: '';
+      position: absolute;
+      left: -31px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--brand-fluor);
+      box-shadow: 0 0 10px var(--brand-fluor);
+    }
+    .xp-role { font-family: var(--font-title); font-size: 1.35rem; font-weight: 700; margin-bottom: 4px; color: var(--text-white); }
+    .xp-company { font-size: 1rem; color: var(--text-muted); margin-bottom: 6px; }
+    .xp-date { font-size: 0.875rem; font-weight: 600; color: var(--brand-fluor); }
+    .xp-details { font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; margin-top: 8px; padding-left: 12px; border-left: 1px solid #2C2C2E; }
+
+    /* ==========================================================================
+       DOBRA 5: TRABALHOS / PORTFÓLIO (image_905f20.png)
+       ========================================================================== */
+    #portfolio { background-color: #0F0F10; border-top: 1px solid #1C1C1E; position: relative; }
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
+    .pill {
+      background-color: #1C1C1E;
+      color: var(--text-white);
+      border: 1px solid #2C2C2E;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .pill.active { background-color: var(--brand-fluor); color: var(--text-dark); border-color: var(--brand-fluor); }
+    .pill:hover:not(.active) { border-color: var(--brand-fluor); color: var(--brand-fluor); }
+    
+    .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+    .portfolio-placeholder {
+      background-color: var(--card-bg);
+      border: 1px solid #1C1C1E;
+      border-radius: 20px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      group: hover;
+    }
+    .portfolio-placeholder::before {
+      content: 'Em produção';
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: #1C1C1E;
+      border: 1px solid #2C2C2E;
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      border-radius: 12px;
+      color: var(--brand-fluor);
+    }
+    .portfolio-placeholder-title { font-family: var(--font-title); font-size: 1.25rem; font-weight: 700; margin-top: 8px; }
+    .portfolio-placeholder-cat { font-size: 0.8125rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    /* Floating Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      background-color: var(--brand-fluor);
+      color: var(--text-dark);
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(255, 95, 31, 0.3);
+      z-index: 99;
+      transition: var(--transition);
+    }
+    .back-to-top:hover { transform: translateY(-4px); background-color: var(--brand-fluor-hover); }
+
+    /* ==========================================================================
+       DOBRA 6: FOOTER (image_9062c0.jpg)
+       ========================================================================== */
+    #footer { background-color: var(--bg-dark); border-top: 1px solid #1C1C1E; text-align: center; }
+    .footer-inner { padding: 80px 24px; display: flex; flex-direction: column; align-items: center; }
+    .footer-headline { font-family: var(--font-title); font-size: clamp(2rem, 5vw, 4rem); font-weight: 800; margin-bottom: 32px; }
+    .footer-headline span { color: var(--brand-fluor); }
+    .footer-copy { font-size: 0.875rem; color: var(--text-muted-dark); margin-top: 24px; }
+
+    /* ==========================================================================
+       RESPONSIVIDADE COMPLETA MÍDIA QUERIES
+       ========================================================================== */
+    @media (max-width: 992px) {
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-photo-wrapper { max-width: 380px; margin: 0 auto; }
+      .skills-groups { grid-template-columns: 1fr; gap: 48px; }
+      .xp-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 576px) {
+      .section-inner { padding: 60px 16px; }
+      .filter-bar { gap: 8px; }
+      .pill { padding: 8px 16px; font-size: 0.8125rem; }
+      .back-to-top { bottom: 16px; right: 16px; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ===================== HERO ===================== -->
+  <!-- ===================== DOBRA 1: HERO ===================== -->
   <header id="hero">
     <div class="hero-inner">
-      <p class="hero-eyebrow">Designer Gráfico</p>
+      <p class="hero-eyebrow">Diretor de Arte &amp; Designer Gráfico</p>
       <div class="hero-headline">
         <span class="hero-pre">Bem-vindo ao meu</span>
         <h1 class="hero-title">
           Portfólio<span class="hero-badge">2026</span>
         </h1>
       </div>
-      <p class="hero-name-credit">Flavio Maia Pavan</p>
+      <p class="hero-name-credit">Flavio Pavan</p>
     </div>
   </header>
 
-  <!-- ==================== SOBRE ==================== -->
+  <!-- ==================== DOBRA 2: SOBRE ==================== -->
   <section id="about" aria-label="Sobre">
     <div class="section-inner about-grid">
-
+      
+      <!-- Placeholder inteligente estruturado para sua imagem futura -->
       <div class="about-photo-col">
-        <figure class="about-photo-wrap">
-          <img src="assets/images/foto.jpg" alt="Foto de Flavio Maia Pavan" />
-        </figure>
+        <div class="about-photo-wrapper">
+          <div class="about-photo-icon">📷</div>
+          <p style="font-weight: 600; margin-bottom: 4px;">Espaço Reservado</p>
+          <p style="font-size: 0.8125rem; color: var(--text-muted-dark);">Sua foto de perfil entrará aqui posteriormente</p>
+        </div>
       </div>
 
       <div class="about-content">
         <h2 class="about-heading">Olá!</h2>
         <p class="about-bio">
-          Profissional em Produção Multimídia com foco em Design Gráfico.<br>
-          Criando peças criativas e únicas, adaptando-se à essência de cada projeto. Facilidade em trabalhar em equipe e lidar com múltiplas demandas simultaneamente.
+          Designer com mais de 30 anos de experiência multidisciplinar, unindo o rigor técnico da produção gráfica tradicional com a agilidade do design digital focado em conversão. Especialista em criar ecossistemas visuais que elevam marcas, desde a diagramação editorial complexa até landing pages de alta performance e ativos para marketing digital.
         </p>
 
-        <nav class="contact-icons about-contacts" aria-label="Links de contato">
-          <a href="[SEU LINK DO LINKEDIN AQUI]" target="_blank" rel="noopener" class="contact-link" aria-label="LinkedIn">
-            <img src="assets/icons/linkedin.svg" alt="LinkedIn" width="22" height="22" />
+        <!-- Redes Sociais com seus links parametrizados -->
+        <nav class="contact-icons" aria-label="Links de contato">
+          <a href="https://www.linkedin.com/in/flaviopavan/" target="_blank" rel="noopener" class="contact-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           </a>
-          <a href="[SEU LINK DO INSTAGRAM AQUI]" target="_blank" rel="noopener" class="contact-link" aria-label="Instagram">
-            <img src="assets/icons/instagram.svg" alt="Instagram" width="22" height="22" />
+          <a href="https://www.instagram.com/flaviopavan_76/" target="_blank" rel="noopener" class="contact-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           </a>
-          <a href="[SEU LINK DO WHATSAPP AQUI]" target="_blank" rel="noopener" class="contact-link" aria-label="WhatsApp">
-            <img src="assets/icons/whatsapp.svg" alt="WhatsApp" width="22" height="22" />
+          <a href="https://wa.me/5511951776198" target="_blank" rel="noopener" class="contact-link" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-2.64-1.03-5.123-2.902-6.994a9.828 9.828 0 0 0-6.985-2.895c-5.449 0-9.887 4.435-9.89 9.886-.001 2.142.586 4.235 1.698 6.04l-.979 3.57 3.666-.962zm11.448-6.887c-.314-.157-1.858-.917-2.142-1.019-.283-.102-.49-.153-.696.157-.206.31-.796.992-.975 1.196-.179.204-.359.227-.673.071-.314-.157-1.326-.488-2.528-1.559-.935-.834-1.566-1.865-1.749-2.179-.183-.314-.02-.484.137-.64.141-.141.314-.366.471-.55.157-.183.21-.314.314-.524.105-.21.052-.393-.026-.55-.079-.157-.696-1.677-.954-2.298-.25-.601-.505-.519-.695-.529-.18-.009-.387-.01-.593-.01z"/></svg>
           </a>
-          <a href="mailto:[SEU EMAIL AQUI]" class="contact-link" aria-label="E-mail">
-            <img src="assets/icons/email.svg" alt="E-mail" width="22" height="22" />
+          <a href="mailto:flavio_pavan@hotmail.com" class="contact-link" aria-label="E-mail">
+            <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
           </a>
         </nav>
 
         <a href="#portfolio" class="cta-button">
           Conheça meus projetos
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
-          </svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
         </a>
       </div>
-
     </div>
   </section>
 
-  <!-- =================== HABILIDADES =================== -->
+  <!-- =================== DOBRA 3: HABILIDADES =================== -->
   <section id="skills" aria-label="Habilidades">
     <div class="section-inner">
       <h2 class="section-title">Habilidades</h2>
 
       <div class="skills-groups">
-
+        <!-- Grupo 1: Ferramentas -->
         <div class="skills-group">
           <h3 class="skills-group-title">Ferramentas de Design</h3>
           <div class="tools-grid">
-
             <div class="tool-card">
-              <div class="tool-icon">
-                <img src="assets/icons/Adobe_Photoshop_CC_icon.svg.png" alt="Adobe Photoshop" width="56" height="56" />
-              </div>
+              <div class="tool-icon-box tool-ps">Ps</div>
               <span class="tool-name">Photoshop</span>
-              <div class="tool-dots" aria-label="Nível: Avançado">
-                <span class="dot filled"></span><span class="dot filled"></span>
-                <span class="dot filled"></span><span class="dot filled"></span>
-                <span class="dot filled"></span>
-              </div>
+              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
             </div>
-
             <div class="tool-card">
-              <div class="tool-icon">
-                <img src="assets/icons/ILLUSTRATOIR.png" alt="Adobe Illustrator" width="56" height="56" />
-              </div>
+              <div class="tool-icon-box tool-ai">Ai</div>
               <span class="tool-name">Illustrator</span>
-              <div class="tool-dots" aria-label="Nível: Avançado">
-                <span class="dot filled"></span><span class="dot filled"></span>
-                <span class="dot filled"></span><span class="dot filled"></span>
-                <span class="dot filled"></span>
-              </div>
+              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
             </div>
-
             <div class="tool-card">
-              <div class="tool-icon">
-                <img src="assets/icons/figma.png" alt="Figma" width="56" height="56" />
-              </div>
+              <div class="tool-icon-box tool-id">Id</div>
+              <span class="tool-name">InDesign</span>
+              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+            </div>
+            <div class="tool-card">
+              <div class="tool-icon-box tool-fg">Fi</div>
               <span class="tool-name">Figma</span>
-              <div class="tool-dots" aria-label="Nível: Médio">
-                <span class="dot filled"></span><span class="dot filled"></span>
-                <span class="dot filled"></span><span class="dot"></span>
-                <span class="dot"></span>
-              </div>
+              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
             </div>
-
             <div class="tool-card">
-              <div class="tool-icon">
-                <img src="assets/icons/Adobe_After_Effects_CC_icon.svg.png" alt="Adobe After Effects" width="56" height="56" />
-              </div>
+              <div class="tool-icon-box tool-ae">Ae</div>
               <span class="tool-name">After Effects</span>
-              <div class="tool-dots" aria-label="Nível: Básico">
-                <span class="dot filled"></span><span class="dot filled"></span>
-                <span class="dot"></span><span class="dot"></span>
-                <span class="dot"></span>
-              </div>
+              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
             </div>
-
             <div class="tool-card">
-              <div class="tool-icon">
-                <img src="assets/icons/Adobe_Premiere_Pro_CC_icon.svg.png" alt="Adobe Premiere Pro" width="56" height="56" />
-              </div>
+              <div class="tool-icon-box tool-pr">Pr</div>
               <span class="tool-name">Premiere</span>
-              <div class="tool-dots" aria-label="Nível: Básico">
-                <span class="dot filled"></span><span class="dot filled"></span>
-                <span class="dot"></span><span class="dot"></span>
-                <span class="dot"></span>
-              </div>
+              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
             </div>
-
           </div>
         </div>
 
+        <!-- Grupo 2: IA -->
         <div class="skills-group">
           <h3 class="skills-group-title">Inteligência Artificial</h3>
-          <div class="tools-grid tools-grid--ai">
-
+          <div class="tools-grid">
             <div class="tool-card">
-              <div class="tool-icon">
-                <img src="assets/icons/Claude_AI_symbol.svg.png" alt="Claude" width="56" height="56" />
-              </div>
+              <div class="tool-icon-box tool-ai-box" style="color: #D97736;">Cc</div>
               <span class="tool-name">Claude</span>
-              <div class="tool-dots" aria-label="Nível: Avançado">
-                <span class="dot filled"></span><span class="dot filled"></span>
-                <span class="dot filled"></span><span class="dot filled"></span>
-                <span class="dot filled"></span>
-              </div>
+              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
             </div>
-
             <div class="tool-card">
-              <div class="tool-icon">
-                <img src="assets/icons/ChatGPT-Logo.png" alt="ChatGPT" width="56" height="56" />
-              </div>
+              <div class="tool-icon-box tool-ai-box" style="color: #10a37f;">Gpt</div>
               <span class="tool-name">ChatGPT</span>
-              <div class="tool-dots" aria-label="Nível: Avançado">
-                <span class="dot filled"></span><span class="dot filled"></span>
-                <span class="dot filled"></span><span class="dot filled"></span>
-                <span class="dot filled"></span>
-              </div>
+              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
             </div>
-
             <div class="tool-card">
-              <div class="tool-icon">
-                <img src="assets/icons/Google_Gemini_icon_2025.svg.png" alt="Gemini" width="56" height="56" />
-              </div>
+              <div class="tool-icon-box tool-ai-box" style="color: #4285f4;">Ge</div>
               <span class="tool-name">Gemini</span>
-              <div class="tool-dots" aria-label="Nível: Avançado">
-                <span class="dot filled"></span><span class="dot filled"></span>
-                <span class="dot filled"></span><span class="dot filled"></span>
-                <span class="dot filled"></span>
-              </div>
+              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
             </div>
-
           </div>
         </div>
-
       </div>
+
     </div>
   </section>
 
-  <!-- ================ EXPERIÊNCIA ================ -->
+  <!-- ================ DOBRA 4: EXPERIÊNCIA & COMPETÊNCIAS ================ -->
   <section id="experience" aria-label="Experiência e Formação">
     <div class="section-inner">
-      <div class="xp-grid">
+      
+      <!-- Subdobra: Principais Competências -->
+      <div class="competencias-top">
+        <h3 class="xp-col-title" style="margin-bottom: 12px;">Principais Competências</h3>
+        <div class="competencias-grid">
+          <div class="competencia-item">
+            <h4>Design Digital &amp; Marketing</h4>
+            <p>Criação de Landing Pages (foco em testes A/B), E-mail Marketing, peças para Social Media e Google Ads.</p>
+          </div>
+          <div class="competencia-item">
+            <h4>Design Editorial &amp; Print</h4>
+            <p>Diagramação de revistas e livros, fechamento de arquivos críticos (pre-press), tratamento de imagens de alto padrão e acompanhamento gráfico.</p>
+          </div>
+          <div class="competencia-item">
+            <h4>UI/UX &amp; Web</h4>
+            <p>Prototipação, arquitetura de informação e princípios de usabilidade para web e apps.</p>
+          </div>
+          <div class="competencia-item">
+            <h4>Ferramentas</h4>
+            <p>Domínio da Adobe Creative Cloud (Photoshop, Illustrator, InDesign), Canva e ferramentas de gestão (Planner).</p>
+          </div>
+        </div>
+      </div>
 
+      <!-- Grid Duas Colunas Paralelas (Estilo Exato da Imagem de Linha do Tempo) -->
+      <div class="xp-grid">
+        
+        <!-- Coluna Esquerda: Experiência -->
         <div class="xp-col">
-          <h3 class="xp-group-title">Experiência</h3>
+          <h3 class="xp-col-title">Experiência Profissional</h3>
           <ul class="xp-list">
             <li class="xp-item">
-              <p class="xp-role">Designer Gráfico</p>
-              <p class="xp-company">Encripta</p>
-              <p class="xp-date">Atualmente</p>
-            </li>
-            <li class="xp-item">
-              <p class="xp-role">[Cargo Anterior]</p>
-              <p class="xp-company">[Empresa Anterior]</p>
-              <p class="xp-date">[Mês/Ano] — [Mês/Ano]</p>
+              <p class="xp-role">Designer Gráfico Sênior</p>
+              <p class="xp-company">Encripta / Looke</p>
+              <p class="xp-date">Outubro de 2023 — Atual</p>
+              <p class="xp-details">Identidade visual de marketing do produto Looke; desenvolvimento de ativos de e-mail marketing e thumbnails estratégicas; gestão via Planner.</p>
             </li>
             <li class="xp-item">
               <p class="xp-role">Designer Gráfico</p>
-              <p class="xp-company">Freelancer</p>
-              <p class="xp-date">[Ano] — [Ano]</p>
+              <p class="xp-company">StartSe</p>
+              <p class="xp-date">Janeiro de 2023 — Outubro de 2023</p>
+              <p class="xp-details">Criação de E-books e enxovais para eventos; implementação de testes A/B em Landing Pages e criação de templates escaláveis no Canva.</p>
+            </li>
+            <li class="xp-item">
+              <p class="xp-role">Designer Gráfico</p>
+              <p class="xp-company">Grupo Padrão</p>
+              <p class="xp-date">Outubro de 2013 — Janeiro de 2023</p>
+              <p class="xp-details">Diagramação da revista Consumidor Moderno (infográficos/capas); cenografia e comunicação visual para eventos de grande porte.</p>
+            </li>
+            <li class="xp-item">
+              <p class="xp-role">Designer Gráfico</p>
+              <p class="xp-company">Just Layout</p>
+              <p class="xp-date">Junho de 2007 — Fevereiro de 2012</p>
+              <p class="xp-details">Tratamento de imagens de alto padrão (Tam nas Nuvens, Cyrella); logotipos e projetos especiais com facas gráficas complexas.</p>
             </li>
           </ul>
         </div>
 
+        <!-- Coluna Direita: Formação -->
         <div class="xp-col">
-          <h3 class="xp-group-title">Formação</h3>
+          <h3 class="xp-col-title">Formação e Certificações</h3>
           <ul class="xp-list">
             <li class="xp-item">
-              <p class="xp-role">[Nome do Curso]</p>
-              <p class="xp-company">[Instituição]</p>
-              <p class="xp-date">[Ano] — [Ano]</p>
+              <p class="xp-role">UX Design &amp; Usabilidade</p>
+              <p class="xp-company">DRC Treinamentos / São Paulo Digital School</p>
+              <p class="xp-date">Completo</p>
             </li>
             <li class="xp-item">
-              <p class="xp-role">Design Gráfico</p>
-              <p class="xp-company">[Instituição]</p>
-              <p class="xp-date">[Ano] — [Ano]</p>
+              <p class="xp-role">Branding Essencial</p>
+              <p class="xp-company">Laje</p>
+              <p class="xp-date">Completo</p>
+            </li>
+            <li class="xp-item">
+              <p class="xp-role">CMO-Xponential Program</p>
+              <p class="xp-company">Startse University</p>
+              <p class="xp-date">Completo</p>
+            </li>
+            <li class="xp-item">
+              <p class="xp-role">Direção de Arte para WEB</p>
+              <p class="xp-company">Brás e Figueiredo</p>
+              <p class="xp-date">Completo</p>
+            </li>
+            <li class="xp-item">
+              <p class="xp-role">Web Design</p>
+              <p class="xp-company">Universidade Anhembi Morumbi</p>
+              <p class="xp-date">Superior Incompleto</p>
             </li>
           </ul>
         </div>
@@ -247,111 +561,86 @@
     </div>
   </section>
 
-  <!-- =================== PORTFOLIO =================== -->
+  <!-- =================== DOBRA 5: TRABALHOS =================== -->
   <section id="portfolio" aria-label="Portfólio">
     <div class="section-inner">
       <h2 class="section-title">Trabalhos</h2>
 
-      <div class="filter-bar" role="group" aria-label="Filtrar por categoria">
-        <button class="pill active" data-filter="all">Todos</button>
-        <button class="pill" data-filter="social-design">Social Design</button>
-        <button class="pill" data-filter="email-marketing">E-mail Marketing</button>
-        <button class="pill" data-filter="arte-estatica-video">Arte Estática + Vídeo</button>
-        <button class="pill" data-filter="motion-design">Motion Design</button>
-        <button class="pill" data-filter="personagem-3d">Personagem 3D</button>
+      <!-- Filtros conforme especificação original -->
+      <div class="filter-bar" role="group" aria-label="Filtrar projetos">
+        <button class="pill active">Todos</button>
+        <button class="pill">Digital Design</button>
+        <button class="pill">Design Editorial</button>
+        <button class="pill">Branding</button>
+        <button class="pill">Landing Pages</button>
       </div>
 
+      <!-- Grid Estrutural pronto esperando seus uploads futuros -->
       <div class="portfolio-grid">
-
-        <!-- SOCIAL DESIGN -->
-        <article class="card" data-category="social-design"
-          data-images='["assets/projects/social-design/[SUA-IMAGEM-1].jpg"]'
-          tabindex="0" aria-label="[NOME DO PROJETO] — Projeto 1">
-          <div class="card-thumb" style="--ph-ratio:1/1;">
-            <img src="assets/projects/social-design/[SUA-IMAGEM-1].jpg" alt="[NOME DO PROJETO] — Projeto 1" loading="lazy" />
+        <div class="portfolio-placeholder">
+          <div>
+            <div class="portfolio-placeholder-cat">Editorial / Print</div>
+            <div class="portfolio-placeholder-title">Projeto Revista Consumidor Moderno</div>
           </div>
-          <div class="card-label">[Nome do Projeto]</div>
-        </article>
-
-        <article class="card" data-category="social-design"
-          data-images='["assets/projects/social-design/[SUA-IMAGEM-2].jpg"]'
-          tabindex="0" aria-label="[NOME DO PROJETO] — Projeto 2">
-          <div class="card-thumb" style="--ph-ratio:1/1;">
-            <img src="assets/projects/social-design/[SUA-IMAGEM-2].jpg" alt="[NOME DO PROJETO] — Projeto 2" loading="lazy" />
+        </div>
+        <div class="portfolio-placeholder">
+          <div>
+            <div class="portfolio-placeholder-cat">Digital / Performance</div>
+            <div class="portfolio-placeholder-title">Landing Pages &amp; Lançamentos Looke</div>
           </div>
-          <div class="card-label">[Nome do Projeto]</div>
-        </article>
-
-        <!-- EMAIL MARKETING -->
-        <article class="card" data-category="email-marketing" data-images='["",""]' tabindex="0" aria-label="E-mail Marketing 1">
-          <div class="card-thumb placeholder" style="--ph-bg:#5e4a2a; --ph-ratio:3/4;"></div>
-          <div class="card-label">E-mail Marketing</div>
-        </article>
-        
-        <!-- ARTE ESTÁTICA + VÍDEO -->
-        <article class="card" data-category="arte-estatica-video" data-images='["",""]' tabindex="0" aria-label="Arte Estática + Vídeo 1">
-          <div class="card-thumb placeholder" style="--ph-bg:#3d2a5e; --ph-ratio:16/9;"></div>
-          <div class="card-label">Arte Estática + Vídeo</div>
-        </article>
-
-      </div><!-- /portfolio-grid -->
+        </div>
+        <div class="portfolio-placeholder">
+          <div>
+            <div class="portfolio-placeholder-cat">Branding / Eventos</div>
+            <div class="portfolio-placeholder-title">Cenografia Completa Grupo Padrão</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ==================== FOOTER ==================== -->
+  <!-- ==================== DOBRA 6: FOOTER ==================== -->
   <footer id="footer">
     <div class="footer-inner">
-      <p class="footer-headline">Vamos trabalhar juntos? <span class="footer-wink">;)</span></p>
+      <p class="footer-headline">Vamos trabalhar <span>juntos? ;)</span></p>
+      
       <nav class="contact-icons" aria-label="Links de contato rodapé">
-        <a href="[SEU LINK DO LINKEDIN AQUI]" target="_blank" rel="noopener" class="contact-link" aria-label="LinkedIn">
-          <img src="assets/icons/linkedin.svg" alt="LinkedIn" width="22" height="22" />
+        <a href="https://www.linkedin.com/in/flaviopavan/" target="_blank" rel="noopener" class="contact-link" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
         </a>
-        <a href="[SEU LINK DO INSTAGRAM AQUI]" target="_blank" rel="noopener" class="contact-link" aria-label="Instagram">
-          <img src="assets/icons/instagram.svg" alt="Instagram" width="22" height="22" />
+        <a href="https://www.instagram.com/flaviopavan_76/" target="_blank" rel="noopener" class="contact-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         </a>
-        <a href="[SEU LINK DO WHATSAPP AQUI]" target="_blank" rel="noopener" class="contact-link" aria-label="WhatsApp">
-          <img src="assets/icons/whatsapp.svg" alt="WhatsApp" width="22" height="22" />
+        <a href="https://wa.me/5511951776198" target="_blank" rel="noopener" class="contact-link" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-2.64-1.03-5.123-2.902-6.994a9.828 9.828 0 0 0-6.985-2.895c-5.449 0-9.887 4.435-9.89 9.886-.001 2.142.586 4.235 1.698 6.04l-.979 3.57 3.666-.962zm11.448-6.887c-.314-.157-1.858-.917-2.142-1.019-.283-.102-.49-.153-.696.157-.206.31-.796.992-.975 1.196-.179.204-.359.227-.673.071-.314-.157-1.326-.488-2.528-1.559-.935-.834-1.566-1.865-1.749-2.179-.183-.314-.02-.484.137-.64.141-.141.314-.366.471-.55.157-.183.21-.314.314-.524.105-.21.052-.393-.026-.55-.079-.157-.696-1.677-.954-2.298-.25-.601-.505-.519-.695-.529-.18-.009-.387-.01-.593-.01z"/></svg>
         </a>
-        <a href="mailto:[SEU EMAIL AQUI]" class="contact-link" aria-label="E-mail">
-          <img src="assets/icons/email.svg" alt="E-mail" width="22" height="22" />
+        <a href="mailto:flavio_pavan@hotmail.com" class="contact-link" aria-label="E-mail">
+          <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
         </a>
       </nav>
-      <p class="footer-copy">&copy; 2026 Flavio Maia Pavan. Todos os direitos reservados.</p>
+      
+      <p class="footer-copy">&copy; 2026 Flavio Pavan. Todos os direitos reservados.</p>
     </div>
   </footer>
 
-  <!-- Botão voltar ao topo -->
-  <button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <polyline points="18 15 12 9 6 15"/>
-    </svg>
+  <!-- Botão Voltar ao Topo Flutuante -->
+  <button class="back-to-top" id="backToTopBtn" aria-label="Voltar ao topo">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
-  <!-- =================== LIGHTBOX =================== -->
-  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Visualização de projeto" hidden>
-    <div class="lb-backdrop"></div>
-    <div class="lb-container">
-      <button class="lb-close" aria-label="Fechar">&times;</button>
-      <button class="lb-prev" aria-label="Anterior">&#8249;</button>
-      <div class="lb-media" aria-live="polite"></div>
-      <button class="lb-next" aria-label="Próximo">&#8250;</button>
-      <div class="lb-dots" aria-hidden="true"></div>
-    </div>
-  </div>
-
-  <script type="module" src="js/carousel.js"></script>
-  <script type="module" src="js/filter.js"></script>
-  <script type="module" src="js/lightbox.js"></script>
-
   <script>
-    const btn = document.getElementById('back-to-top');
+    // Lógica simples nativa para o botão voltar ao topo funcionar fluidamente
+    const btn = document.getElementById('backToTopBtn');
     window.addEventListener('scroll', () => {
-      btn.classList.toggle('visible', window.scrollY > 400);
-    }, { passive: true });
+      if (window.scrollY > 400) {
+        btn.style.display = 'flex';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
     btn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
-
 </body>
 </html>
