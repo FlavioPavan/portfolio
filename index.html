@@ -6,40 +6,134 @@
   <title>Flavio Pavan — Designer Gráfico & Diretor de Arte</title>
   <meta name="description" content="Portfólio de Flavio Pavan, Designer com mais de 30 anos de experiência multidisciplinar." />
 
+  <!-- Fontes do Projeto Original -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
 
   <style>
+    /* ==========================================================================
+       TOKENS DE DESIGN & VARIÁVEIS (Ajustado para Laranja Fluor)
+       ========================================================================== */
     :root {
       --bg-dark: #0A0A0A;
-      --bg-light: #EDECE6;
+      --bg-light: #EDECE6; /* Tom creme do bloco de habilidades */
       --text-white: #FFFFFF;
       --text-dark: #121212;
       --text-muted: #8E8E93;
       --text-muted-dark: #48484A;
+      
+      /* SUBSTITUIÇÃO: Verde Fluor por Laranja Fluor Neon */
       --brand-fluor: #FF5F1F; 
       --brand-fluor-hover: #FF7A45;
+      
       --card-bg: #141416;
       --font-title: 'Syne', sans-serif;
       --font-body: 'Inter', sans-serif;
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
+    /* Reset Geral Basico */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; font-size: 16px; }
-    body { background-color: var(--bg-dark); color: var(--text-white); font-family: var(--font-body); }
+    body { background-color: var(--bg-dark); color: var(--text-white); font-family: var(--font-body); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
     a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
+    ul, ol { list-style: none; }
+    img { max-width: 100%; display: block; }
+    
     .section-inner { max-width: 1200px; margin: 0 auto; padding: 100px 24px; }
 
-    /* Ajuste do Container de Ícones Sociais */
-    .contact-icons { 
-      display: flex; 
-      gap: 16px; 
-      margin-bottom: 40px; 
-      justify-content: flex-start; /* Alinhado à esquerda como solicitado */
+    /* ==========================================================================
+       DOBRA 1: HERO
+       ========================================================================== */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 40px 24px;
     }
+    .hero-inner { max-width: 1200px; margin: 0 auto; w-index: 2; width: 100%; position: relative; }
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+    .hero-headline { margin-bottom: 40px; }
+    .hero-pre {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 1.5rem;
+      color: var(--text-white);
+      margin-bottom: 8px;
+    }
+    .hero-title {
+      font-family: var(--font-title);
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 800;
+      line-height: 0.9;
+      text-transform: none;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .hero-badge {
+      background-color: var(--brand-fluor);
+      color: var(--text-dark);
+      font-family: var(--font-body);
+      font-size: clamp(0.875rem, 2vw, 1.25rem);
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 20px;
+      display: inline-block;
+      line-height: 1;
+      margin-left: 8px;
+    }
+    .hero-name-credit {
+      position: absolute;
+      bottom: -40px;
+      right: 0;
+      font-family: var(--font-title);
+      text-transform: uppercase;
+      color: var(--text-muted-dark);
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      letter-spacing: 0.05em;
+    }
+
+    /* ==========================================================================
+       DOBRA 2: SOBRE
+       ========================================================================== */
+    #about { background-color: #0F0F10; border-top: 1px solid #1C1C1E; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: center; }
+    
+    .about-photo-wrapper {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      border: 1px solid #1C1C1E;
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+    .about-photo-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .about-photo-wrapper:hover { border-color: var(--brand-fluor); }
+
+    .about-content { display: flex; flex-direction: column; align-items: flex-start; }
+    .about-heading { font-family: var(--font-title); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 24px; }
+    .about-bio { font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.6; color: #D1D1D6; margin-bottom: 32px; }
+    
+    .contact-icons { display: flex; gap: 16px; margin-bottom: 40px; }
     .contact-link {
       width: 48px;
       height: 48px;
@@ -54,73 +148,509 @@
     .contact-link svg { width: 20px; height: 20px; fill: var(--text-white); transition: var(--transition); }
     .contact-link:hover { background-color: var(--brand-fluor); border-color: var(--brand-fluor); }
     .contact-link:hover svg { fill: var(--text-dark); }
+    
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background-color: var(--brand-fluor);
+      color: var(--text-dark);
+      padding: 16px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    .cta-button:hover { background-color: var(--brand-fluor-hover); transform: translateY(-2px); }
 
-    /* Habilidades e Cards */
+    /* ==========================================================================
+       DOBRA 3: HABILIDADES
+       ========================================================================== */
     #skills { background-color: var(--bg-light); color: var(--text-dark); }
-    .section-title { font-family: var(--font-title); font-size: 3rem; margin-bottom: 48px; }
+    .section-title { font-family: var(--font-title); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; margin-bottom: 48px; text-transform: none; }
     .skills-groups { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; }
-    .skills-group-title { font-size: 0.875rem; text-transform: uppercase; margin-bottom: 32px; color: #636366; }
+    .skills-group-title { font-family: var(--font-body); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #636366; margin-bottom: 32px; border-bottom: 1px solid #D1D1D6; padding-bottom: 12px; }
     .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 24px; }
     
     .tool-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
     .tool-icon-box {
-      width: 72px; height: 72px; border-radius: 18px; background-color: #FFFFFF;
-      display: flex; align-items: center; justify-content: center; margin-bottom: 12px;
-      font-weight: bold; font-size: 1.25rem; border: 1px solid #D1D1D6;
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background-color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #FFF;
     }
-    .tool-name { font-size: 0.8125rem; font-weight: 500; margin-bottom: 8px; }
-    .tool-dots { display: flex; gap: 3px; }
-    .dot { width: 6px; height: 6px; border-radius: 50%; background-color: #D1D1D6; }
-    .dot.filled { background-color: var(--text-dark); }
-
-    /* Classes específicas de cor para Ícones */
     .tool-ps { background: #001E36; color: #00C8FF; }
     .tool-ai { background: #330000; color: #FF9A00; }
     .tool-id { background: #330014; color: #FF3366; }
     .tool-fg { background: #2C2C2C; color: #F24E1E; }
     .tool-ae { background: #000033; color: #9999FF; }
     .tool-pr { background: #000022; color: #EA77FF; }
+    
+    /* Caixa das I.As conforme a imagem de referência */
+    .tool-ai-box { 
+      background: #F4F3EF; 
+      border: 1px solid #E2E1DD;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+    .tool-ai-box svg { width: 44px; height: 44px; display: block; }
+
+    .tool-name { font-size: 0.8125rem; font-weight: 500; color: var(--text-dark); margin-bottom: 8px; }
+    .tool-dots { display: flex; gap: 3px; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background-color: #D1D1D6; }
+    .dot.filled { background-color: var(--text-dark); }
+
+    /* ==========================================================================
+       DOBRA 4: EXPERIÊNCIA & COMPETÊNCIAS
+       ========================================================================== */
+    #experience { background-color: var(--bg-dark); }
+    .competencias-top { margin-bottom: 64px; background: #0F0F10; padding: 32px; border-radius: 24px; border: 1px solid #1C1C1E; }
+    .competencias-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-top: 24px; }
+    .competencia-item h4 { font-family: var(--font-title); font-size: 1.15rem; color: var(--brand-fluor); margin-bottom: 8px; }
+    .competencia-item p { font-size: 0.875rem; line-height: 1.5; color: var(--text-muted); }
+
+    .xp-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; }
+    .xp-col-title { font-family: var(--font-body); font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-fluor); margin-bottom: 40px; }
+    
+    .xp-list { border-left: 2px solid #1C1C1E; padding-left: 24px; position: relative; }
+    .xp-item { position: relative; margin-bottom: 40px; }
+    .xp-item::before {
+      content: '';
+      position: absolute;
+      left: -31px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--brand-fluor);
+      box-shadow: 0 0 10px var(--brand-fluor);
+    }
+    .xp-role { font-family: var(--font-title); font-size: 1.35rem; font-weight: 700; margin-bottom: 4px; color: var(--text-white); }
+    .xp-company { font-size: 1rem; color: var(--text-muted); margin-bottom: 6px; }
+    .xp-date { font-size: 0.875rem; font-weight: 600; color: var(--brand-fluor); }
+    .xp-details { font-size: 0.875rem; color: var(--text-muted); line-height: 1.5; margin-top: 8px; padding-left: 12px; border-left: 1px solid #2C2C2E; }
+
+    /* ==========================================================================
+       DOBRA 5: TRABALHOS / PORTFÓLIO
+       ========================================================================== */
+    #portfolio { background-color: #0F0F10; border-top: 1px solid #1C1C1E; position: relative; }
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 40px; }
+    .pill {
+      background-color: #1C1C1E;
+      color: var(--text-white);
+      border: 1px solid #2C2C2E;
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .pill.active { background-color: var(--brand-fluor); color: var(--text-dark); border-color: var(--brand-fluor); }
+    .pill:hover:not(.active) { border-color: var(--brand-fluor); color: var(--brand-fluor); }
+    
+    .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+    .portfolio-placeholder {
+      background-color: var(--card-bg);
+      border: 1px solid #1C1C1E;
+      border-radius: 20px;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .portfolio-placeholder::before {
+      content: 'Em produção';
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      background: #1C1C1E;
+      border: 1px solid #2C2C2E;
+      font-size: 0.75rem;
+      padding: 4px 12px;
+      border-radius: 12px;
+      color: var(--brand-fluor);
+    }
+    .portfolio-placeholder-title { font-family: var(--font-title); font-size: 1.25rem; font-weight: 700; margin-top: 8px; }
+    .portfolio-placeholder-cat { font-size: 0.8125rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 48px;
+      height: 48px;
+      background-color: var(--brand-fluor);
+      color: var(--text-dark);
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(255, 95, 31, 0.3);
+      z-index: 99;
+      transition: var(--transition);
+    }
+    .back-to-top:hover { transform: translateY(-4px); background-color: var(--brand-fluor-hover); }
+
+    /* ==========================================================================
+       DOBRA 6: FOOTER
+       ========================================================================== */
+    #footer { background-color: var(--bg-dark); border-top: 1px solid #1C1C1E; text-align: center; }
+    .footer-inner { padding: 80px 24px; display: flex; flex-direction: column; align-items: center; }
+    .footer-headline { font-family: var(--font-title); font-size: clamp(2rem, 5vw, 4rem); font-weight: 800; margin-bottom: 32px; }
+    .footer-headline span { color: var(--brand-fluor); }
+    .footer-copy { font-size: 0.875rem; color: var(--text-muted-dark); margin-top: 24px; }
+
+    /* ==========================================================================
+       RESPONSIVIDADE COMPLETA MÍDIA QUERIES
+       ========================================================================== */
+    @media (max-width: 992px) {
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-photo-wrapper { max-width: 380px; margin: 0 auto; }
+      .skills-groups { grid-template-columns: 1fr; gap: 48px; }
+      .xp-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 576px) {
+      .section-inner { padding: 60px 16px; }
+      .filter-bar { gap: 8px; }
+      .pill { padding: 8px 16px; font-size: 0.8125rem; }
+      .back-to-top { bottom: 16px; right: 16px; }
+    }
   </style>
 </head>
 <body>
 
-  <section id="about">
-    <div class="section-inner">
-      <nav class="contact-icons">
-        <a href="https://www.linkedin.com/in/flaviopavan/" target="_blank" class="contact-link" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-        <a href="https://www.instagram.com/flaviopavan_76/" target="_blank" class="contact-link" title="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-        <a href="https://wa.me/5511951776198" target="_blank" class="contact-link" title="WhatsApp"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-2.64-1.03-5.123-2.902-6.994a9.828 9.828 0 0 0-6.985-2.895c-5.449 0-9.887 4.435-9.89 9.886-.001 2.142.586 4.235 1.698 6.04l-.979 3.57 3.666-.962z"/></svg></a>
-        <a href="mailto:flavio_pavan@hotmail.com" class="contact-link" title="E-mail"><svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg></a>
-      </nav>
+  <!-- ===================== DOBRA 1: HERO ===================== -->
+  <header id="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Diretor de Arte &amp; Designer Gráfico</p>
+      <div class="hero-headline">
+        <span class="hero-pre">Bem-vindo ao meu</span>
+        <h1 class="hero-title">
+          Portfólio<span class="hero-badge">2026</span>
+        </h1>
+      </div>
+      <p class="hero-name-credit">Flavio Pavan</p>
+    </div>
+  </header>
+
+  <!-- ==================== DOBRA 2: SOBRE ==================== -->
+  <section id="about" aria-label="Sobre">
+    <div class="section-inner about-grid">
+      
+      <div class="about-photo-col">
+        <div class="about-photo-wrapper">
+          <img src="assets/perfil-artistic.png" alt="Flavio Pavan">
+        </div>
+      </div>
+
+      <div class="about-content">
+        <h2 class="about-heading">Olá!</h2>
+        <p class="about-bio">
+          Designer com mais de 30 anos de experiência multidisciplinar, unindo o rigor técnico da produção gráfica tradicional com a agilidade do design digital focado em conversão. Especialista em criar ecossistemas visuais que elevam marcas, desde a diagramação editorial complexa até landing pages de alta performance e ativos para marketing digital.
+        </p>
+
+        <nav class="contact-icons" aria-label="Links de contato">
+          <a href="https://www.linkedin.com/in/flaviopavan/" target="_blank" rel="noopener" class="contact-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/flaviopavan_76/" target="_blank" rel="noopener" class="contact-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://wa.me/5511951776198" target="_blank" rel="noopener" class="contact-link" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M12.004 2c-5.517 0-9.996 4.479-9.996 9.995 0 1.764.459 3.42 1.33 4.877l-1.415 5.166 5.287-1.387c1.409.767 3.003 1.173 4.717 1.173 5.517 0 9.997-4.479 9.997-9.995 0-2.673-1.04-5.186-2.93-7.075-1.888-1.888-4.403-2.929-7.076-2.929zm5.71 14.127c-.246.694-1.435 1.272-1.972 1.334-.486.056-.95.244-3.08-.597-2.73-1.071-4.467-3.834-4.604-4.016-.135-.181-1.094-1.455-1.094-2.776 0-1.321.693-1.972.936-2.233.243-.26.536-.327.715-.327.179 0 .36.008.518.016.163.008.383-.061.594.448.219.53.75 1.83.815 1.961.065.13.109.282.022.454-.087.171-.131.275-.262.428-.13.153-.274.341-.393.454-.13.123-.267.257-.115.52.152.262.677 1.111 1.452 1.802.1.09.201.174.305.253.67.564 1.18.736 1.493.893.313.157.496.13.674-.076.179-.207.783-.911.893-1.221.109-.31.219-.25.383-.189.163.061 1.036.488 1.214.577.179.09.298.134.342.211.044.077.044.444-.202 1.139z"/></svg>
+          </a>
+          <a href="mailto:flavio_pavan@hotmail.com" class="contact-link" aria-label="E-mail">
+            <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+          </a>
+        </nav>
+
+        <a href="#portfolio" class="cta-button">
+          Conheça meus projetos
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 
-  <section id="skills">
+  <!-- =================== DOBRA 3: HABILIDADES =================== -->
+  <section id="skills" aria-label="Habilidades">
     <div class="section-inner">
+      <h2 class="section-title">Habilidades</h2>
+
       <div class="skills-groups">
+        <!-- Grupo 1: Ferramentas -->
+        <div class="skills-group">
+          <h3 class="skills-group-title">Ferramentas de Design</h3>
+          <div class="tools-grid">
+            <div class="tool-card">
+              <div class="tool-icon-box tool-ps">Ps</div>
+              <span class="tool-name">Photoshop</span>
+              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+            </div>
+            <div class="tool-card">
+              <div class="tool-icon-box tool-ai">Ai</div>
+              <span class="tool-name">Illustrator</span>
+              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+            </div>
+            <div class="tool-card">
+              <div class="tool-icon-box tool-id">Id</div>
+              <span class="tool-name">InDesign</span>
+              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
+            </div>
+            <div class="tool-card">
+              <div class="tool-icon-box tool-fg">Fi</div>
+              <span class="tool-name">Figma</span>
+              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+            </div>
+            <!-- Ajustado para 4 Bolinhas Cheias (Pretas) -->
+            <div class="tool-card">
+              <div class="tool-icon-box tool-ae">Ae</div>
+              <span class="tool-name">After Effects</span>
+              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span></div>
+            </div>
+            <!-- Ajustado para 3 Bolinhas Cheias (Pretas) -->
+            <div class="tool-card">
+              <div class="tool-icon-box tool-pr">Pr</div>
+              <span class="tool-name">Premiere</span>
+              <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot"></span><span class="dot"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grupo 2: Inteligência Artificial (Ícones exatos e idênticos à imagem) -->
         <div class="skills-group">
           <h3 class="skills-group-title">Inteligência Artificial</h3>
           <div class="tools-grid">
+            <!-- Claude (Ícone "Starburst" Oficial Cor Terracota) -->
             <div class="tool-card">
-              <div class="tool-icon-box">Cc</div>
+              <div class="tool-icon-box tool-ai-box">
+                <svg viewBox="0 0 32 32" fill="#D97736">
+                  <path d="M17.13 15.42c.86-1.07 1.88-2.18 2.71-3.15.34-.4.1-.96-.42-.99-.86-.06-2.1-.06-3.11-.02-.45.02-.75.43-.64.86.26 1.05.65 2.51.87 3.59.09.46.6.61.94.27.11-.12.29-.35.65-.56zm-1.89 2.59c1.07.86 2.18 1.88 3.15 2.71.4.34.96.1.99-.42.06-.86.06-2.1.02-3.11-.02-.45-.43-.75-.86-.64-1.05.26-2.51.65-3.59.87-.46.09-.61.6-.27.94.12.11.35.29.56.65zm-2.5-4.48c-.86 1.07-1.88 2.18-2.71 3.15-.34.4-.1.96.42.99.86.06 2.1.06 3.11.02.45-.02.75-.43.64-.86-.26-1.05-.65-2.51-.87-3.59-.09-.46-.6-.61-.94-.27-.11.12-.29.35-.65.56zm4.48-2.5c1.07-.86 2.18-1.88 3.15-2.71.4-.34.96-.1.99.42.06.86.06-2.1.02-3.11-.02-.45-.43-.75-.86-.64-1.05.26-2.51.65-3.59.87-.46.09-.61.6-.27.94.12.11.35.29.56.65zm-5.06-.74c-.26-1.05-.65-2.51-.87-3.59-.09-.46-.6-.61-.94-.27-.11.12-.29.35-.65.56-.86 1.07-1.88 2.18-2.71 3.15-.34.4-.1.96.42.99.86.06 2.1.06 3.11.02.45-.02.75-.43.64-.86zm4.5 10.14c.26 1.05.65 2.51.87 3.59.09.46.6.61.94.27.11-.12.29-.35.65-.56.86-1.07 1.88-2.18 2.71-3.15.34-.4.1-.96-.42-.99-.86-.06-2.1-.06-3.11-.02-.45.02-.75.43-.64.86zm-7.07-2.61c-1.07-.86-2.18-1.88-3.15-2.71-.4-.34-.96-.1-.99.42-.06.86-.06 2.1-.02 3.11.02.45.43.75.86.64 1.05-.26 2.51-.65 3.59-.87.46-.09.61-.6.27-.94-.12-.11-.35-.29-.56-.65z"/>
+                </svg>
+              </div>
               <span class="tool-name">Claude</span>
               <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
             </div>
+            
+            <!-- ChatGPT (Ícone Vórtice Oficial Preto) -->
             <div class="tool-card">
-              <div class="tool-icon-box">Gt</div>
+              <div class="tool-icon-box tool-ai-box">
+                <svg viewBox="0 0 24 24" fill="#000000">
+                  <path d="M21.74 11.53c.21-.4.32-.86.32-1.32 0-1.56-1.26-2.82-2.82-2.82-.44 0-.87.1-1.27.3-.43-.76-1.22-1.24-2.13-1.24-.41 0-.82.1-1.18.29-.53-.87-1.48-1.42-2.55-1.42-1.25 0-2.31.81-2.69 1.94-.4-.2-.84-.31-1.3-.31-1.56 0-2.82 1.26-2.82 2.82 0 .44.1.87.3 1.28-.76.43-1.25 1.22-1.25 2.13 0 .4.1.81.29 1.17-.87.53-1.42 1.48-1.42 2.54 0 1.57 1.26 2.83 2.82 2.83.45 0 .89-.11 1.29-.31.43.76 1.22 1.24 2.13 1.24.41 0 .81-.1 1.17-.29.54.87 1.49 1.41 2.55 1.41 1.56 0 2.82-1.26 2.82-2.82 0-.45-.1-.88-.3-1.29.77-.43 1.25-1.22 1.25-2.13 0-.4-.1-.8-.29-1.16.87-.54 1.41-1.49 1.41-2.55zm-4.35 4.54l-3.35 1.93c-.1.06-.21.09-.32.09-.22 0-.44-.06-.63-.18l-3.35-1.93c-.39-.23-.63-.64-.63-1.1 0-.46.24-.87.63-1.1l3.35-1.93c.19-.12.41-.18.63-.18.11 0 .22.03.32.09l3.35 1.93c.39.23.63.64.63 1.1 0 .46-.24.87-.63 1.1zm-1.17-5.41l-1.84 1.06-1.84-1.06V8.53l1.84-1.06 1.84 1.06v2.13zm-3.35-4.22c.44 0 .83.22 1.06.59l-2.12 1.22-2.12-1.22c.23-.37.62-.59 1.06-.59zm-4.57 2.1l2.12 1.22v2.44l-2.12-1.22c-.36-.21-.59-.6-.59-1.02 0-.42.23-.81.59-1.02zm-.59 5.44c0-.42.23-.81.59-1.02l2.12-1.22v2.44l-2.12 1.22c-.36-.21-.59-.6-.59-1.02zm3.11 3.34c-.44 0-.83-.22-1.06-.59l2.12-1.22 2.12 1.22c-.23.37-.62.59-1.06.59zm4.57-2.1l-2.12-1.22v-2.44l2.12 1.22c.36.21.59.6.59 1.02 0 .42-.23.81-.59 1.02zm.59-5.44c0 .42-.23.81-.59 1.02l-2.12 1.22v-2.44l2.12-1.22c.36-.21.59-.6.59-1.02z"/>
+                </svg>
+              </div>
               <span class="tool-name">ChatGPT</span>
               <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
             </div>
+            
+            <!-- Gemini (Ícone Estrela 4 Pontas com Degradê Fluidoidêntico) -->
             <div class="tool-card">
-              <div class="tool-icon-box">Ge</div>
+              <div class="tool-icon-box tool-ai-box">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <defs>
+                    <linearGradient id="gemini-fluid-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#FF5A79" />
+                      <stop offset="35%" stop-color="#FFC23D" />
+                      <stop offset="70%" stop-color="#2FD59B" />
+                      <stop offset="100%" stop-color="#3A82F6" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M12 2c0 5.523 4.477 10 10 10-5.523 0-10 4.477-10 10 0-5.523-4.477-10-10-10 5.523 0 10-4.477 10-10z" fill="url(#gemini-fluid-grad)" />
+                </svg>
+              </div>
               <span class="tool-name">Gemini</span>
               <div class="tool-dots"><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span></div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
+  <!-- ================ DOBRA 4: EXPERIÊNCIA & COMPETÊNCIAS ================ -->
+  <section id="experience" aria-label="Experiência e Formação">
+    <div class="section-inner">
+      
+      <div class="competencias-top">
+        <h3 class="xp-col-title" style="margin-bottom: 12px;">Principais Competências</h3>
+        <div class="competencias-grid">
+          <div class="competencia-item">
+            <h4>Design Digital &amp; Marketing</h4>
+            <p>Criação de Landing Pages (foco em testes A/B), E-mail Marketing, peças para Social Media e Google Ads.</p>
+          </div>
+          <div class="competencia-item">
+            <h4>Design Editorial &amp; Print</h4>
+            <p>Diagramação de revistas e livros, fechamento de arquivos críticos (pre-press), tratamento de imagens de alto padrão e acompanhamento gráfico.</p>
+          </div>
+          <div class="competencia-item">
+            <h4>UI/UX &amp; Web</h4>
+            <p>Prototipação, arquitetura de informação e princípios de usabilidade para web e apps.</p>
+          </div>
+          <div class="competencia-item">
+            <h4>Ferramentas</h4>
+            <p>Domínio da Adobe Creative Cloud (Photoshop, Illustrator, InDesign), Canva e ferramentas de gestão (Planner).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="xp-grid">
+        
+        <div class="xp-col">
+          <h3 class="xp-col-title">Experiência Profissional</h3>
+          <ul class="xp-list">
+            <li class="xp-item">
+              <p class="xp-role">Designer Gráfico Sênior</p>
+              <p class="xp-company">Encripta / Looke</p>
+              <p class="xp-date">Outubro de 2023 — Atual</p>
+              <p class="xp-details">Identidade visual de marketing do produto Looke; desenvolvimento de ativos de e-mail marketing e thumbnails estratégicas; gestão via Planner.</p>
+            </li>
+            <li class="xp-item">
+              <p class="xp-role">Designer Gráfico</p>
+              <p class="xp-company">StartSe</p>
+              <p class="xp-date">Janeiro de 2023 — Outubro de 2023</p>
+              <p class="xp-details">Criação de E-books e enxovais para eventos; implementação de testes A/B em Landing Pages e criação de templates escaláveis no Canva.</p>
+            </li>
+            <li class="xp-item">
+              <p class="xp-role">Designer Gráfico</p>
+              <p class="xp-company">Grupo Padrão</p>
+              <p class="xp-date">Outubro de 2013 — Janeiro de 2023</p>
+              <p class="xp-details">Diagramação da revista Consumidor Moderno (infográficos/capas); cenografia e comunicação visual para eventos de grande porte.</p>
+            </li>
+            <li class="xp-item">
+              <p class="xp-role">Designer Gráfico</p>
+              <p class="xp-company">Just Layout</p>
+              <p class="xp-date">Junho de 2007 — Fevereiro de 2012</p>
+              <p class="xp-details">Tratamento de imagens de alto padrão (Tam nas Nuvens, Cyrella); logotipos e projetos especiais com facas gráficas complexas.</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="xp-col">
+          <h3 class="xp-col-title">Formação e Certificações</h3>
+          <ul class="xp-list">
+            <li class="xp-item">
+              <p class="xp-role">UX Design &amp; Usabilidade</p>
+              <p class="xp-company">DRC Treinamentos / São Paulo Digital School</p>
+              <p class="xp-date">Completo</p>
+            </li>
+            <li class="xp-item">
+              <p class="xp-role">Branding Essencial</p>
+              <p class="xp-company">Laje</p>
+              <p class="xp-date">Completo</p>
+            </li>
+            <li class="xp-item">
+              <p class="xp-role">CMO-Xponential Program</p>
+              <p class="xp-company">Startse University</p>
+              <p class="xp-date">Completo</p>
+            </li>
+            <li class="xp-item">
+              <p class="xp-role">Direção de Arte para WEB</p>
+              <p class="xp-company">Brás e Figueiredo</p>
+              <p class="xp-date">Completo</p>
+            </li>
+            <li class="xp-item">
+              <p class="xp-role">Web Design</p>
+              <p class="xp-company">Universidade Anhembi Morumbi</p>
+              <p class="xp-date">Superior Incompleto</p>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== DOBRA 5: TRABALHOS =================== -->
+  <section id="portfolio" aria-label="Portfólio">
+    <div class="section-inner">
+      <h2 class="section-title">Trabalhos</h2>
+
+      <div class="filter-bar" role="group" aria-label="Filtrar projetos">
+        <button class="pill active">Todos</button>
+        <button class="pill">Digital Design</button>
+        <button class="pill">Design Editorial</button>
+        <button class="pill">Branding</button>
+        <button class="pill">Landing Pages</button>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-placeholder">
+          <div>
+            <div class="portfolio-placeholder-cat">Editorial / Print</div>
+            <div class="portfolio-placeholder-title">Projeto Revista Consumidor Moderno</div>
+          </div>
+        </div>
+        <div class="portfolio-placeholder">
+          <div>
+            <div class="portfolio-placeholder-cat">Digital / Performance</div>
+            <div class="portfolio-placeholder-title">Landing Pages &amp; Lançamentos Looke</div>
+          </div>
+        </div>
+        <div class="portfolio-placeholder">
+          <div>
+            <div class="portfolio-placeholder-cat">Branding / Eventos</div>
+            <div class="portfolio-placeholder-title">Cenografia Completa Grupo Padrão</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DOBRA 6: FOOTER ==================== -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <p class="footer-headline">Vamos trabalhar <span>juntos? ;)</span></p>
+      
+      <nav class="contact-icons" aria-label="Links de contato rodapé">
+        <a href="https://www.linkedin.com/in/flaviopavan/" target="_blank" rel="noopener" class="contact-link" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/flaviopavan_76/" target="_blank" rel="noopener" class="contact-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://wa.me/5511951776198" target="_blank" rel="noopener" class="contact-link" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M12.004 2c-5.517 0-9.996 4.479-9.996 9.995 0 1.764.459 3.42 1.33 4.877l-1.415 5.166 5.287-1.387c1.409.767 3.003 1.173 4.717 1.173 5.517 0 9.997-4.479 9.997-9.995 0-2.673-1.04-5.186-2.93-7.075-1.888-1.888-4.403-2.929-7.076-2.929zm5.71 14.127c-.246.694-1.435 1.272-1.972 1.334-.486.056-.95.244-3.08-.597-2.73-1.071-4.467-3.834-4.604-4.016-.135-.181-1.094-1.455-1.094-2.776 0-1.321.693-1.972.936-2.233.243-.26.536-.327.715-.327.179 0 .36.008.518.016.163.008.383-.061.594.448.219.53.75 1.83.815 1.961.065.13.109.282.022.454-.087.171-.131.275-.262.428-.13.153-.274.341-.393.454-.13.123-.267.257-.115.52.152.262.677 1.111 1.452 1.802.1.09.201.174.305.253.67.564 1.18.736 1.493.893.313.157.496.13.674-.076.179-.207.783-.911.893-1.221.109-.31.219-.25.383-.189.163.061 1.036.488 1.214.577.179.09.298.134.342.211.044.077.044.444-.202 1.139z"/></svg>
+        </a>
+        <a href="mailto:flavio_pavan@hotmail.com" class="contact-link" aria-label="E-mail">
+          <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
+        </a>
+      </nav>
+      
+      <p class="footer-copy">&copy; 2026 Flavio Pavan. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Botão Voltar ao Topo Flutuante -->
+  <button class="back-to-top" id="backToTopBtn" aria-label="Voltar ao topo">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script>
+    const btn = document.getElementById('backToTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        btn.style.display = 'flex';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
